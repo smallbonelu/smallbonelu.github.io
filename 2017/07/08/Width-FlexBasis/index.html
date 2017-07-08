@@ -113,7 +113,7 @@
 <meta property="og:image" content="http://blog.microfrontend.com/images/container-items09.png">
 <meta property="og:image" content="http://blog.microfrontend.com/images/container-items10.png">
 <meta property="og:image" content="http://blog.microfrontend.com/images/container-items11.png">
-<meta property="og:updated_time" content="2017-07-08T04:06:01.876Z">
+<meta property="og:updated_time" content="2017-07-08T04:44:46.995Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flex Basis与Width的区别">
 <meta name="twitter:description" content="最近在学习Flex Box，其中的Flex Box属性中的Flex Basis是关于项目宽度属性设置的，这让许多初学Flex Box的人困惑它与CSS盒子模型Width属性的区别在哪？Google了一番，找到一篇解释写得很是不错的文章，尝试着翻译分享一下。原文地址：http://gedd.ski/post/the-difference-between-width-and-flex-basis/ F">
@@ -381,8 +381,11 @@
 
       
         <p>最近在学习Flex Box，其中的Flex Box属性中的Flex Basis是关于项目宽度属性设置的，这让许多初学Flex Box的人困惑它与CSS盒子模型Width属性的区别在哪？Google了一番，找到一篇解释写得很是不错的文章，尝试着翻译分享一下。<br>原文地址：<a href="http://gedd.ski/post/the-difference-between-width-and-flex-basis/" target="_blank" rel="external">http://gedd.ski/post/the-difference-between-width-and-flex-basis/</a></p>
-<h2 id="Flex-Items的应用准则"><a href="#Flex-Items的应用准则" class="headerlink" title="Flex Items的应用准则"></a>Flex Items的应用准则</h2><p><strong>content –&gt; width –&gt; flex-basis (limted by max|min-width)</strong><br>也就是说，<br><em>如果没有设置flex-basis属性，那么flex-basis的大小就是项目的width属性的大小
-</em>如果没有设置width属性，那么flex-basis的大小就是项目内容(content)的大小</p>
+<h2 id="Flex-Items的应用准则"><a href="#Flex-Items的应用准则" class="headerlink" title="Flex Items的应用准则"></a>Flex Items的应用准则</h2><p><strong>content –&gt; width –&gt; flex-basis (limted by max|min-width)</strong><br>也就是说，</p>
+<ul>
+<li>如果没有设置flex-basis属性，那么flex-basis的大小就是项目的width属性的大小</li>
+<li>如果没有设置width属性，那么flex-basis的大小就是项目内容(content)的大小</li>
+</ul>
 <p>下面通过给一个1000px的flex容器来添加一些flex items来说明一下Flex Items的应用准则：<br><img src="/images/containerbox.png" alt="container box"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">container &#123;</div><div class="line">    display: flex;</div><div class="line">    width: 1000px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h2 id="设置宽度-Width"><a href="#设置宽度-Width" class="headerlink" title="设置宽度(Width)"></a>设置宽度(Width)</h2><p>添加四个200x200像素的items到flex容器中<br><img src="/images/items.png" alt="flex items"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">item &#123;</div><div class="line">    width: 200px;</div><div class="line">    height: 200px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>因为flex容器有足够多的空间，所以items可以很好的填充在容器内部：<br><img src="/images/container-items01.png" alt="fill items in container"><br>上面的示例就是当flex-basis没有被指定，默认值是flex-basis: auto，也就意味着items以宽度width(200px)为准。</p>
