@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript,性能," />
+  <meta name="keywords" content="JavaScript,翻译,性能," />
 
 
 
@@ -94,9 +94,9 @@
 
 
 <meta name="description" content="当我们建立严重依赖于JavaScript的网站时，我们不总是很容易看到我们发送的内容所付出的代价。在这篇文章中，如果你希望你的网站在移动设备上能够快速加载和互动，我将介绍为什么一些规则可以帮助你。 tl;dr：较少的代码=较少的解析/编译+较少的传输+较少的解压缩 网络当大多数开发人员考虑JavaScript的成本时，他们会考虑下载和执行成本。通过线路发送更多字节的JavaScript需要的时间越">
-<meta name="keywords" content="JavaScript,性能">
+<meta name="keywords" content="JavaScript,翻译,性能">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript的开销">
+<meta property="og:title" content="(译)JavaScript的开销">
 <meta property="og:url" content="http://blog.microfrontend.com/2017/12/05/The-cost-of-JavaScript/index.html">
 <meta property="og:site_name" content="微前端">
 <meta property="og:description" content="当我们建立严重依赖于JavaScript的网站时，我们不总是很容易看到我们发送的内容所付出的代价。在这篇文章中，如果你希望你的网站在移动设备上能够快速加载和互动，我将介绍为什么一些规则可以帮助你。 tl;dr：较少的代码=较少的解析/编译+较少的传输+较少的解压缩 网络当大多数开发人员考虑JavaScript的成本时，他们会考虑下载和执行成本。通过线路发送更多字节的JavaScript需要的时间越">
@@ -116,9 +116,9 @@
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/12/4/16021cd99d11c74a?w=1920&h=1080&f=png&s=113623">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/12/4/16021ded8315fb94?w=2000&h=758&f=png&s=299460">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/12/4/16021e55927926f6?w=1600&h=942&f=png&s=194009">
-<meta property="og:updated_time" content="2017-12-05T06:59:56.793Z">
+<meta property="og:updated_time" content="2017-12-05T07:12:10.713Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript的开销">
+<meta name="twitter:title" content="(译)JavaScript的开销">
 <meta name="twitter:description" content="当我们建立严重依赖于JavaScript的网站时，我们不总是很容易看到我们发送的内容所付出的代价。在这篇文章中，如果你希望你的网站在移动设备上能够快速加载和互动，我将介绍为什么一些规则可以帮助你。 tl;dr：较少的代码=较少的解析/编译+较少的传输+较少的解压缩 网络当大多数开发人员考虑JavaScript的成本时，他们会考虑下载和执行成本。通过线路发送更多字节的JavaScript需要的时间越">
 <meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2017/12/4/160217c1861efb88?w=1600&h=986&f=png&s=171818">
 
@@ -154,7 +154,7 @@
 
 
 
-  <title>JavaScript的开销 | 微前端</title>
+  <title>(译)JavaScript的开销 | 微前端</title>
   
 
 
@@ -324,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JavaScript的开销</h1>
+          <h1 class="post-title" itemprop="name headline">(译)JavaScript的开销</h1>
         
 
         <div class="post-meta">
@@ -366,7 +366,7 @@
 
           
           
-             <span id="/2017/12/05/The-cost-of-JavaScript/" class="leancloud_visitors" data-flag-title="JavaScript的开销">
+             <span id="/2017/12/05/The-cost-of-JavaScript/" class="leancloud_visitors" data-flag-title="(译)JavaScript的开销">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -448,7 +448,12 @@
 <h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p><strong>传输大小对低端网络至关重要。解析时间对于CPU受限的设备很重要。保持这两者的抵开销。</strong></p>
 <p>团队发现成功采用严格的性能预算来保持JavaScript传输和解析/编译时间较短。请参阅Alex Russell的“ <a href="https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/" target="_blank" rel="external">您可以承受吗？：真实世界的Web性能预算 </a>”，以获取关于移动预算的指导。<br><img src="https://user-gold-cdn.xitu.io/2017/12/4/16021e55927926f6?w=1600&amp;h=942&amp;f=png&amp;s=194009" alt=""><br>考虑一下我们制作的架构决策可以为应用程序逻辑留下多少JS“空间”。</p>
 <p>如果您正在构建针对移动设备的网站，请尽可能在代表性硬件上开发，保持较低的JavaScript分析/编译时间，并采用性能预算来确保您的团队能够关注其JavaScript成本。</p>
-<p><a href="https://medium.com/dev-channel/the-cost-of-javascript-84009f51e99e?mkt_tok=eyJpIjoiWm1NeVpXWXhPRE5sTnpBNSIsInQiOiJTZTg1YU5Sd2ozaWpwNXVzTVNqZlJRV3A1SlNkcVhWd3U5UlwvQ3lXVWEyXC9mWEZadk1lYmZGdXRDU0NuYXEzRjNXSmhOeDRMUWIrZFAzeFNQUmh4cEVFYW1vZ1BPT3p2Z1FSVVlRS3NuWWFhQ0VTVVB2VW9mZ2RCV1dHVjB3YklqIn0%3D" target="_blank" rel="external">原文地址</a></p>
+<p>注：</p>
+<ol>
+<li>本文版权归原作者所有，仅用于学习与交流；</li>
+<li>如需转载译文，烦请按下方注明出处信息，谢谢！<div class="note default"><p>原文： The Cost Of JavaScript<br>作者： Addy Osmani<br>译者：smallbone<br><a href="https://medium.com/dev-channel/the-cost-of-javascript-84009f51e99e?mkt_tok=eyJpIjoiWm1NeVpXWXhPRE5sTnpBNSIsInQiOiJTZTg1YU5Sd2ozaWpwNXVzTVNqZlJRV3A1SlNkcVhWd3U5UlwvQ3lXVWEyXC9mWEZadk1lYmZGdXRDU0NuYXEzRjNXSmhOeDRMUWIrZFAzeFNQUmh4cEVFYW1vZ1BPT3p2Z1FSVVlRS3NuWWFhQ0VTVVB2VW9mZ2RCV1dHVjB3YklqIn0%3D" target="_blank" rel="external">原文地址</a></p>
+</div></li>
+</ol>
 
       
     </div>
@@ -479,6 +484,8 @@
         <div class="post-tags">
           
             <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/翻译/" rel="tag"># 翻译</a>
           
             <a href="/tags/性能/" rel="tag"># 性能</a>
           
