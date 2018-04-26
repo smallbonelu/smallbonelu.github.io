@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript,性能,翻译," />
+  <meta name="keywords" content="Front End Development, HTML, CSS, JavaScript" />
 
 
 
@@ -93,34 +93,16 @@
 
 
 
-<meta name="description" content="当我们建立严重依赖于JavaScript的网站时，我们不总是很容易看到我们发送的内容所付出的代价。在这篇文章中，如果你希望你的网站在移动设备上能够快速加载和互动，我将介绍为什么一些规则可以帮助你。 tl;dr：较少的代码=较少的解析/编译+较少的传输+较少的解压缩 网络当大多数开发人员考虑JavaScript的成本时，他们会考虑下载和执行成本。通过线路发送更多字节的JavaScript需要的时间越">
-<meta name="keywords" content="JavaScript,性能,翻译">
+<meta name="description" content="#如何使用File APIs来读取文件 兼容性检查12345if (window.File &amp;amp;&amp;amp; window.FileReader &amp;amp;&amp;amp; window.FileList &amp;amp;&amp;amp; window.Blob) &amp;#123;	//支持File APIs&amp;#125; else &amp;#123;	//不支持File APIs&amp;#125; FileReader()Fi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="(译)JavaScript的开销">
-<meta property="og:url" content="http://blog.microfrontend.com/2017/12/05/The-cost-of-JavaScript/index.html">
+<meta property="og:title" content="如何使用File APIs来读取文件">
+<meta property="og:url" content="http://blog.microfrontend.com/2018/04/26/如何使用File-APIs来读取文件/index.html">
 <meta property="og:site_name" content="微前端">
-<meta property="og:description" content="当我们建立严重依赖于JavaScript的网站时，我们不总是很容易看到我们发送的内容所付出的代价。在这篇文章中，如果你希望你的网站在移动设备上能够快速加载和互动，我将介绍为什么一些规则可以帮助你。 tl;dr：较少的代码=较少的解析/编译+较少的传输+较少的解压缩 网络当大多数开发人员考虑JavaScript的成本时，他们会考虑下载和执行成本。通过线路发送更多字节的JavaScript需要的时间越">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/12/4/160217c1861efb88?w=1600&h=986&f=png&s=171818">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/12/4/1602196d45876e60?w=1920&h=1080&f=png&s=341039">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/12/4/160219ad273ec177?w=1194&h=246&f=png&s=23990">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/12/4/160219d02bddd745?w=1206&h=344&f=png&s=56753">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/12/4/16021a060b371eb6?w=1600&h=442&f=png&s=42314">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/12/4/16021a2171cb2a04?w=1600&h=900&f=png&s=106997">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/12/4/16021a6f16ba40bd?w=2000&h=1293&f=png&s=374663">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/12/4/16021b17698463e6?w=1920&h=1080&f=png&s=255414">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/12/4/16021b8dea1e61a5?w=1920&h=1080&f=png&s=190330">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/12/4/16021bc67de898b3?w=1600&h=900&f=png&s=394591">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/12/4/16021c0f4b3b40f5?w=1600&h=889&f=png&s=412315">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/12/4/16021c4a51d2c0a2?w=1600&h=900&f=png&s=121093">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/12/4/16021cbaad418883?w=2000&h=1089&f=png&s=418128">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/12/4/16021cd99d11c74a?w=1920&h=1080&f=png&s=113623">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/12/4/16021ded8315fb94?w=2000&h=758&f=png&s=299460">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/12/4/16021e55927926f6?w=1600&h=942&f=png&s=194009">
-<meta property="og:updated_time" content="2017-12-05T07:12:10.713Z">
+<meta property="og:description" content="#如何使用File APIs来读取文件 兼容性检查12345if (window.File &amp;amp;&amp;amp; window.FileReader &amp;amp;&amp;amp; window.FileList &amp;amp;&amp;amp; window.Blob) &amp;#123;	//支持File APIs&amp;#125; else &amp;#123;	//不支持File APIs&amp;#125; FileReader()Fi">
+<meta property="og:updated_time" content="2018-04-26T12:31:58.856Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="(译)JavaScript的开销">
-<meta name="twitter:description" content="当我们建立严重依赖于JavaScript的网站时，我们不总是很容易看到我们发送的内容所付出的代价。在这篇文章中，如果你希望你的网站在移动设备上能够快速加载和互动，我将介绍为什么一些规则可以帮助你。 tl;dr：较少的代码=较少的解析/编译+较少的传输+较少的解压缩 网络当大多数开发人员考虑JavaScript的成本时，他们会考虑下载和执行成本。通过线路发送更多字节的JavaScript需要的时间越">
-<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2017/12/4/160217c1861efb88?w=1600&h=986&f=png&s=171818">
+<meta name="twitter:title" content="如何使用File APIs来读取文件">
+<meta name="twitter:description" content="#如何使用File APIs来读取文件 兼容性检查12345if (window.File &amp;amp;&amp;amp; window.FileReader &amp;amp;&amp;amp; window.FileList &amp;amp;&amp;amp; window.Blob) &amp;#123;	//支持File APIs&amp;#125; else &amp;#123;	//不支持File APIs&amp;#125; FileReader()Fi">
 
 
 
@@ -148,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.microfrontend.com/2017/12/05/The-cost-of-JavaScript/"/>
+  <link rel="canonical" href="http://blog.microfrontend.com/2018/04/26/如何使用File-APIs来读取文件/"/>
 
 
 
 
 
-  <title>(译)JavaScript的开销 | 微前端</title>
+  <title>如何使用File APIs来读取文件 | 微前端</title>
   
 
 
@@ -307,7 +289,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.microfrontend.com/2017/12/05/The-cost-of-JavaScript/">
+    <link itemprop="mainEntityOfPage" href="http://blog.microfrontend.com/2018/04/26/如何使用File-APIs来读取文件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="smallbonelu">
@@ -324,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">(译)JavaScript的开销</h1>
+          <h1 class="post-title" itemprop="name headline">如何使用File APIs来读取文件</h1>
         
 
         <div class="post-meta">
@@ -336,8 +318,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-05T14:56:22+08:00">
-                2017-12-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-26T20:27:03+08:00">
+                2018-04-26
               </time>
             
 
@@ -356,8 +338,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/05/The-cost-of-JavaScript/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2017/12/05/The-cost-of-JavaScript/" itemprop="commentsCount"></span>
+                <a href="/2018/04/26/如何使用File-APIs来读取文件/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2018/04/26/如何使用File-APIs来读取文件/" itemprop="commentsCount"></span>
                 </a>
               </span>
               <!--/noindex-->
@@ -366,7 +348,7 @@
 
           
           
-             <span id="/2017/12/05/The-cost-of-JavaScript/" class="leancloud_visitors" data-flag-title="(译)JavaScript的开销">
+             <span id="/2018/04/26/如何使用File-APIs来读取文件/" class="leancloud_visitors" data-flag-title="如何使用File APIs来读取文件">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -394,66 +376,53 @@
       
 
       
-        <p>当我们建立严重依赖于JavaScript的网站时，我们不总是很容易看到我们发送的内容所付出的代价。在这篇文章中，如果你希望你的网站在移动设备上能够快速加载和互动，我将介绍为什么一些规则可以帮助你。</p>
-<p><strong>tl;dr：较少的代码=较少的解析/编译+较少的传输+较少的解压缩</strong></p>
-<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><p>当大多数开发人员考虑JavaScript的成本时，他们会考虑下载和执行成本。通过线路发送更多字节的JavaScript需要的时间越长，用户的连接也就越慢。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2017/12/4/160217c1861efb88?w=1600&amp;h=986&amp;f=png&amp;s=171818" alt=""></p>
-<p>这可能是一个问题，即使在发达国家，因为用户有效的网络连接类型可能实际上并不是3G，4G或WiFi。你可能在咖啡店使用Wifi，但连接到的是2G的蜂窝热点。</p>
-<p>您可以通过以下方式降低 JavaScript的网络传输成本：</p>
+        <p>#如何使用File APIs来读取文件</p>
+<h2 id="兼容性检查"><a href="#兼容性检查" class="headerlink" title="兼容性检查"></a>兼容性检查</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">if (window.File &amp;&amp; window.FileReader &amp;&amp; window.FileList &amp;&amp; window.Blob) &#123;</div><div class="line">	//支持File APIs</div><div class="line">&#125; else &#123;</div><div class="line">	//不支持File APIs</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="FileReader"><a href="#FileReader" class="headerlink" title="FileReader()"></a>FileReader()</h2><p>FileReader对象让web应用程序可以异步地读取存储在用户电脑上的文件(或者原始数据缓冲区)的内容。在JavaScript中，FileReaderd对象通过传入两种相应的对象(File和Blob)来进行数据的读取，而且这个方法在Web Workers中也能使用。</p>
+<p>FileReader 包括四个异步读取文件的选项：</p>
 <ul>
-<li><p><strong>只发送用户需要的代码</strong>。代码拆分这时候就有用武之地了。</p>
-</li>
-<li><p><strong>压缩代码</strong>（ES515的 Uglify， ES2015的 babel- minify或uglify -es）</p>
-</li>
-<li><p><strong>高度压缩</strong>（使用Brotli〜q11，Zopfli或gzip的）。Brotli的压缩比超过Gzip。它让CertSimple节省了17％的JS压缩字节大小，LinkedIn节省了 4％的加载时间。</p>
-</li>
-<li><p><strong>删除未使用的代码</strong>。通过DevTools代码覆盖来确定。对于剥离的代码，可以查看<a href="https://webpack.js.org/guides/tree-shaking/" target="_blank" rel="external">tree shaking</a>，<a href="https://developers.google.com/closure/compiler/" target="_blank" rel="external">闭包编译器</a>的高级优化和微调库插件如lodash-babel-plugin插件或WebPack的<a href="https://iamakulov.com/notes/webpack-front-end-size-caching/#moment-js" target="_blank" rel="external">ContextReplacementPlugin</a>如Moment.js库。使用babel-preset-env和browserlist来避免现代浏览器中已经存在的转译功能。高级开发人员可能会发现仔细<a href="https://github.com/webpack-contrib/webpack-bundle-analyzer" target="_blank" rel="external">分析Webpack捆绑包</a>有助于识别修剪不需要的依赖关系。</p>
-</li>
-<li><p><strong><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching" target="_blank" rel="external">使用HTTP缓存</a>以尽量减少网络跳转</strong>。确定脚本的最佳生命周期（max-age）和提供令牌验证（ETag）以避免传输没有变更的字节。Service Worker缓存可以使您的应用程序网络具有弹性，让您可以快速访问<a href="https://v8project.blogspot.com/2015/07/code-caching.html" target="_blank" rel="external">V8的代码缓存</a>等功能。了解有关<a href="https://webpack.js.org/guides/caching/" target="_blank" rel="external">文件名哈希</a>的长期缓存。<br><img src="https://user-gold-cdn.xitu.io/2017/12/4/1602196d45876e60?w=1920&amp;h=1080&amp;f=png&amp;s=341039" alt="如何减少发送给用户的JavaScript最佳实践"></p>
+<li><code>FileReader.readAsBinaryString(Blob|File)</code> - 返回值的result 属性将包含二进制字符串形式的file/blob 数据。每个字节均由一个 [0..255] 范围内的整数表示。</li>
+<li><code>FileReader.readAsText(Blob|File, opt_encoding)</code> - 返回值的result 属性将包含文本字符串形式的 file/blob 数据。该字符串在默认情况下采用“UTF-8”编码。使用可选编码参数可指定其他格式。</li>
+<li><code>FileReader.readAsDataURL(Blob|File)</code> - 返回值的result 属性将包含编码为数据网址的 file/blob 数据。</li>
+<li><code>FileReader.readAsArrayBuffer(Blob|File)</code> - 返回值的result 属性将包含 ArrayBuffer 对象形式的 file/blob 数据。</li>
+</ul>
+<p>FileReader 对象调用其中某一种读取方法后，可使用 <code>onloadstart、onprogress、onload、onabort、onerror 和 onloadend</code> 跟踪其进度。</p>
+<h3 id="读取文件并显示进度"><a href="#读取文件并显示进度" class="headerlink" title="读取文件并显示进度"></a>读取文件并显示进度</h3><p>下面的示例从用户选择的内容中过滤掉了图片，对文件调用 <code>reader.readAsDataURL()</code>，并通过将“src”属性设为数据网址来呈现缩略图。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">    .thumb &#123;</div><div class="line">        height: 75px;</div><div class="line">        border: 1px solid #000;</div><div class="line">        margin: 10px 5px 0 0;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    #list &#123;</div><div class="line">        border: 1px solid lightgrey;</div><div class="line">        padding: 15px;</div><div class="line">        text-align: center;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    #progress_bar &#123;</div><div class="line">        margin: 10px 0;</div><div class="line">        padding: 3px;</div><div class="line">        border: 1px solid #000;</div><div class="line">        font-size: 14px;</div><div class="line">        clear: both;</div><div class="line">        opacity: 0;</div><div class="line">        -moz-transition: opacity 1s linear;</div><div class="line">        -o-transition: opacity 1s linear;</div><div class="line">        -webkit-transition: opacity 1s linear;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    #progress_bar.loading &#123;</div><div class="line">        opacity: 1.0;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    #progress_bar .percent &#123;</div><div class="line">        background-color: #99ccff;</div><div class="line">        height: auto;</div><div class="line">        width: 0;</div><div class="line">    &#125;</div><div class="line">&lt;/style&gt;</div><div class="line"></div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line">    &lt;input type=&quot;file&quot; name=&quot;files[]&quot; id=&quot;files&quot; multiple /&gt;</div><div class="line">    &lt;div id=&quot;list&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;button onclick=&quot;abortRead();&quot;&gt;Cancel read&lt;/button&gt;</div><div class="line">    &lt;script&gt;</div><div class="line">    let reader;</div><div class="line">    let progress;</div><div class="line">    let progress_bar;</div><div class="line"></div><div class="line">    function abortRead() &#123;</div><div class="line">        reader.abort();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function errorHandler(evt) &#123;</div><div class="line">        let error = evt.target.error;</div><div class="line"></div><div class="line">        switch (error.code) &#123;</div><div class="line">            case error.NOT_FOUND_ERR:</div><div class="line">                alert(&apos;没有找到文件&apos;);</div><div class="line">                break;</div><div class="line">            case error.NOT_READABLE_ERR:</div><div class="line">                alert(&apos;无法读取文件&apos;);</div><div class="line">                break;</div><div class="line">            case error.ABORT_ERR:</div><div class="line">                break;</div><div class="line">            default:</div><div class="line">                alert(&apos;文件读取错误&apos;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function updateProgress(evt) &#123;</div><div class="line">        if (evt.lengthComputable) &#123;</div><div class="line">            let percentLoaded = Math.round((evt.loaded / evt.total) * 100);</div><div class="line">            </div><div class="line">            if (percentLoaded &lt; 100) &#123;</div><div class="line">                progress.style.width = percentLoaded + &apos;%&apos;;</div><div class="line">                progress.textContent = percentLoaded + &apos;%&apos;;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function handleFileSelect(evt) &#123;</div><div class="line">        let files = evt.target.files;</div><div class="line">        </div><div class="line">        //创建进度条</div><div class="line">        progress_bar = document.createElement(&apos;div&apos;);</div><div class="line">        progress_bar.id = &apos;progress_bar&apos;;</div><div class="line">        progress = document.createElement(&apos;div&apos;);</div><div class="line">        progress.className = &apos;percent&apos;;</div><div class="line">        progress.style.width = &apos;0%&apos;;</div><div class="line">        progress.textContent = &apos;0%&apos;;</div><div class="line">        progress_bar.appendChild(progress);</div><div class="line">        document.getElementById(&apos;list&apos;).appendChild(progress_bar);</div><div class="line"></div><div class="line">        for (let i = 0; i &lt; files.length; i++) &#123;</div><div class="line">            reader = new FileReader();</div><div class="line">            if (!files[i].type.match(&apos;image.*&apos;)) &#123;</div><div class="line">                alert(&apos;选择的文件不是图片&apos;);</div><div class="line">                abortRead();</div><div class="line">                return;</div><div class="line">            &#125;</div><div class="line">            reader.onerror = errorHandler;</div><div class="line">            reader.onprogress = updateProgress;</div><div class="line"></div><div class="line">            reader.onabort = (e) =&gt; &#123;</div><div class="line">                alert(&apos;文件读取已取消&apos;);</div><div class="line">            &#125;;</div><div class="line"></div><div class="line">            reader.onloadstart = (e) =&gt; &#123;</div><div class="line">            	progress_bar.className = &apos;loading&apos;;</div><div class="line">            &#125;;</div><div class="line"></div><div class="line">            reader.onload = (e) =&gt; &#123;</div><div class="line">            	</div><div class="line">            	let span = document.createElement(&apos;span&apos;);</div><div class="line">                span.innerHTML = [&apos;&lt;img class=&quot;thumb&quot; src=&quot;&apos;, e.target.result, &apos;&quot; title=&quot;&apos;, files[i].name, &apos;&quot;/&gt;&apos;].join(&apos;&apos;);</div><div class="line">                document.getElementById(&apos;list&apos;).insertBefore(span, progress_bar);</div><div class="line">                progress.style.width = &apos;100%&apos;;</div><div class="line">                progress.textContent = &apos;100%&apos;;</div><div class="line">            &#125;;</div><div class="line">            reader.readAsDataURL(files[i]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    document.getElementById(&apos;files&apos;).addEventListener(&apos;change&apos;, handleFileSelect, false);</div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure>
+<h3 id="FileList-API"><a href="#FileList-API" class="headerlink" title="FileList API"></a>FileList API</h3><p>字面上可以理解为多个File对象组合成的数组，但是只有<code>length属性</code>和<code>item(index)</code>方法，访问其中的File对象既可以使用<code>files.item(index)</code>，也可以使用<code>files[index]</code>的方法。</p>
+<h3 id="File-API"><a href="#File-API" class="headerlink" title="File API"></a>File API</h3><p>File对象是一种特定类型的Blob。<code>FileReader</code>, <code>URL.createObjectURL()</code>, <code>createImageBitmap()</code>, 以及<code>XMLHttpRequest.send()</code> 都接受Blobs和Files。</p>
+<ul>
+<li>File对象包含的信息<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	lastModified: 1428005315000,</div><div class="line">	lastModifiedDate: Thu Apr 02 2015 15:08:35 GMT-0500 (CDT),</div><div class="line">	name: &quot;profile.pdf&quot;,</div><div class="line">	size: 135568,</div><div class="line">	type: &quot;application/pdf&quot;,</div><div class="line">	webkitRelativePath: &quot;&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="解析-编译"><a href="#解析-编译" class="headerlink" title="解析/编译"></a>解析/编译</h2><p>一旦JS下载完毕，JavaScript最大的一个成本就是JS引擎解析/编译这段代码的时间。在Chrome DevTools中，解析和编译是“性能”面板中黄色“脚本”时间的一部分。<br><img src="https://user-gold-cdn.xitu.io/2017/12/4/160219ad273ec177?w=1194&amp;h=246&amp;f=png&amp;s=23990" alt=""></p>
-<p>Bottom-Up/Call Tree允许查看确切的解析/编译时序：<br><img src="https://user-gold-cdn.xitu.io/2017/12/4/160219d02bddd745?w=1206&amp;h=344&amp;f=png&amp;s=56753" alt=""><br><em>Chrome DevTools“性能”面板&gt;自下而上。通过启用V8的运行时调用统计，我们可以看到分析和编译阶段花费的时间</em></p>
-<p>但是，为什么这会有问题呢？<br><img src="https://user-gold-cdn.xitu.io/2017/12/4/16021a060b371eb6?w=1600&amp;h=442&amp;f=png&amp;s=42314" alt=""><br><strong>花费很长时间解析/编译代码会严重延迟用户与网站互动的时间。发送的JavaScript越多，在网站交互之前解析和编译的时间就越长。</strong><br><img src="https://user-gold-cdn.xitu.io/2017/12/4/16021a2171cb2a04?w=1600&amp;h=900&amp;f=png&amp;s=106997" alt=""></p>
-<p>同样多的字节，<strong>浏览器处理JavaScript要比同等大小的图像或Web字体开销更大。</strong> - Tom Dale</p>
-<p>与JavaScript相比，在处理等效大小的图片时（涉及到大量的图片仍然需要解码！），涉及到大量的开销，但是在一般的移动设备上，JS更有可能对页面的交互性产生负面影响。<br><img src="https://user-gold-cdn.xitu.io/2017/12/4/16021a6f16ba40bd?w=2000&amp;h=1293&amp;f=png&amp;s=374663" alt=""><br><em>JavaScript和图像字节的开销有很大的不同。图像通常不会阻塞主线程，也不会阻止接口在解码和栅格化时进行的交互。然而JS由于解析，编译和执行的成本会延迟交互性。</em></p>
-<p>当我们谈论解析和编译变慢的时候，上下文很重要 - 我们在这里谈论的普通手机。<strong>指的是大部分用户使用的CPU和GPU速度较慢的手机，无L2 / L3缓存，甚至可能内存很小</strong>。</p>
-<p><em>网络功能和设备功能并不总是相匹配。使用光纤连接的用户不一定有最好的CPU来解析和执行发送到他们的设备的JavaScript。反过来也是如此。一个糟糕的网络连接，但却有一个快速的CPU。 - Kristofer Baxter，LinkedIn</em></p>
-<p>在<a href="https://medium.com/reloading/javascript-start-up-performance-69200f43b201" target="_blank" rel="external">JavaScript启动性能</a>中，我注意到在低端和高端硬件上解析大约1MB已经被解压的（简单）JavaScript的开销。<strong>在市场上最快的手机和普通手机之间解析/编译代码的时间有2-5倍的差异</strong>。<br><img src="https://user-gold-cdn.xitu.io/2017/12/4/16021b17698463e6?w=1920&amp;h=1080&amp;f=png&amp;s=255414" alt=""><br><em>在不同类别的桌面和移动设备上解析一个1MB的JavaScript包（约有250KB 被gzip压缩了）的解析时间。在查看解析的开销时，解压后的数据要考虑到大约有250KB 被gzip压缩的空间会被释放出来当解压缩大约1MB的代码的时候</em></p>
-<p>那么现实世界的网站如何呢，如CNN.com<br><strong>在高端的iPhone 8上，解析/编译CNN的JS需要花费大约4秒，而普通手机（Moto G4）则只需要13秒</strong>。这可以显著影响用户与本网站完全交互的速度。<br><img src="https://user-gold-cdn.xitu.io/2017/12/4/16021b8dea1e61a5?w=1920&amp;h=1080&amp;f=png&amp;s=190330" alt=""><br><em>苹果的A11仿生芯片和非常普通的Android硬件中的Snapdragon 617的解析时间性能比较。</em></p>
-<p>这突出了普通硬件（如Moto G4）测试的重要性，而不仅仅是口袋里的手机。但是，使用环境很重要：<strong>优化您的用户拥有的设备和网络条件。</strong><br><img src="https://user-gold-cdn.xitu.io/2017/12/4/16021bc67de898b3?w=1600&amp;h=900&amp;f=png&amp;s=394591" alt=""></p>
-<p>分析可以深入了解您的真实用户访问您的网站的<a href="https://crossbrowsertesting.com/blog/development/use-google-analytics-find-devices-customers-use/" target="_blank" rel="external">移动设备类别</a>。这可以提供机会来了解他们正在使用的真正的CPU / GPU的限制。</p>
-<p><strong>我们是否真的发送了太多的JavaScript？错误，这很有可能:)</strong></p>
-<p>使用HTTP Archive（最高大约50万个站点）来分析移动设备上JavaScript的状态，我们可以看到，50％的站点需要14秒才能获得交互。仅仅只是解析和编译JS，这些网站就花费长达4秒。<br><img src="https://user-gold-cdn.xitu.io/2017/12/4/16021c0f4b3b40f5?w=1600&amp;h=889&amp;f=png&amp;s=412315" alt=""></p>
-<p>在获取和处理JS和其他资源所花费的时间中，因为感觉网页已经可以使用，用户可能会等待一段时间，这也许并不奇怪。但我们一定可以在这里做得更好。</p>
-<p><strong>从网页中删除不重要的JavaScript可以减少传输时间，CPU密集型解析和编译以及潜在的内存开销。这也有助于让您的网页更快地交互。</strong></p>
-<h2 id="执行时间"><a href="#执行时间" class="headerlink" title="执行时间"></a>执行时间</h2><p>这不仅仅是解析和编译，而且可能会带来额外的开销。JavaScript执行（一次解析/编译运行代码）是在主线程上发生的操作之一。很长的执行时间也可以推出用户可以与网站互动的时间。<br><img src="https://user-gold-cdn.xitu.io/2017/12/4/16021c4a51d2c0a2?w=1600&amp;h=900&amp;f=png&amp;s=121093" alt=""></p>
-<p>如果脚本执行时间超过50ms，则交互时间会被下载，编译和执行JS所花时间延迟了 - Alex Russell</p>
-<p>为了解决这个问题，JavaScript受益于small chunks，以避免锁定主线程。探索是否可以减少执行过程中正在进行的工作量。</p>
-<h2 id="减少JavaScript发送开销的模式"><a href="#减少JavaScript发送开销的模式" class="headerlink" title="减少JavaScript发送开销的模式"></a>减少JavaScript发送开销的模式</h2><p>当你试图保持JavaScript的解析/编译和网络传输时间很慢时，有一些模式可以帮助像基于路由的分块(route-based chunking)或<a href="https://developers.google.com/web/fundamentals/performance/prpl-pattern/" target="_blank" rel="external">PRPL</a>。</p>
-<p>PRPL是一种通过代码分割和缓存来优化交互性的模式：<br><img src="https://user-gold-cdn.xitu.io/2017/12/4/16021cbaad418883?w=2000&amp;h=1089&amp;f=png&amp;s=418128" alt=""></p>
-<p>让我们看看它可以产生的影响。<br>我们使用V8的运行时调用统计来分析流行移动网站和Progressive Web Apps的加载时间。正如我们所看到的，解析时间（以橙色显示）是许多这些站点花费时间的比较大的部分：<br><img src="https://user-gold-cdn.xitu.io/2017/12/4/16021cd99d11c74a?w=1920&amp;h=1080&amp;f=png&amp;s=113623" alt=""></p>
-<p><a href="https://wego.com/" target="_blank" rel="external">Wego</a>是一个使用PRPL的网站，它设法保持较低的路由解析时间，能够非常迅速地进行互动。上面的许多其他站点都采用代码分解和性能预算来降低JS的开销。</p>
-<h2 id="其他开销"><a href="#其他开销" class="headerlink" title="其他开销"></a>其他开销</h2><p>JavaScript可以通过其他方式影响页面性能：</p>
-<ul>
-<li><p>内存。由于GC（垃圾收集），页面可能经常会出现卡顿或暂停。当浏览器回收内存时，JS执行被暂停，所以经常进行垃圾收集的浏览器可以比我们想要的更频繁地暂停执行。避免内存泄漏和频繁的gc暂停，以保持页面流畅。</p>
-</li>
-<li><p>在运行时，长时间运行的JavaScript可以阻止主线程导致无响应的页面。将工作分成更小的部分（使用requestAnimationFrame（）或有计划的使用requestIdleCallback（））可以最大限度地减少响应性问题。</p>
-</li>
-</ul>
-<h2 id="渐进式引导"><a href="#渐进式引导" class="headerlink" title="渐进式引导"></a>渐进式引导</h2><p>许多网站将内容可视性作为交互性的代价来优化。为了在有大的JavaScript包时获得一个快速的首页，开发者有时会使用服务器端渲染;然后在JavaScript最终获取时将其“升级”以附加事件处理程序。</p>
-<p>小心 - 这有它自己的开销。1）这通常会发送一个更大的 HTML响应，这会延迟交互性，2）这会把用户留在一个离奇的山谷中，其中有一半的实际功能是没有办法交互的，直到JavaScript运行完成。</p>
-<p>渐进式引导可能是一个更好的方法。发送一个最小功能的页面（由当前路由所需的HTML / JS / CSS组成）。随着更多的资源到达，该应用程序可以延迟加载和解锁更多的功能。<br><img src="https://user-gold-cdn.xitu.io/2017/12/4/16021ded8315fb94?w=2000&amp;h=758&amp;f=png&amp;s=299460" alt=""><br>Paul Lewis的<a href="https://twitter.com/aerotwist/status/729712502943174657" target="_blank" rel="external">渐进式引导</a>视觉</p>
-<p><strong>根据所看到的加载代码是圣杯。PRPL和渐进引导是可以帮助实现这一点的模式。</strong></p>
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p><strong>传输大小对低端网络至关重要。解析时间对于CPU受限的设备很重要。保持这两者的抵开销。</strong></p>
-<p>团队发现成功采用严格的性能预算来保持JavaScript传输和解析/编译时间较短。请参阅Alex Russell的“ <a href="https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/" target="_blank" rel="external">您可以承受吗？：真实世界的Web性能预算 </a>”，以获取关于移动预算的指导。<br><img src="https://user-gold-cdn.xitu.io/2017/12/4/16021e55927926f6?w=1600&amp;h=942&amp;f=png&amp;s=194009" alt=""><br>考虑一下我们制作的架构决策可以为应用程序逻辑留下多少JS“空间”。</p>
-<p>如果您正在构建针对移动设备的网站，请尽可能在代表性硬件上开发，保持较低的JavaScript分析/编译时间，并采用性能预算来确保您的团队能够关注其JavaScript成本。</p>
-<p>注：</p>
+<p>需要注意的是，type是根据文件扩展名来判断的，所以并不是很可靠。根据上面File对象的信息其实就可以实现一些常用的功能了，比如限制文件上传的大小，初步的限制文件上传的类型(当然也可以通过input元素的accept属性来实现，但是最终的类型验证还是需要在服务器端实现)。</p>
+<p>File对象一般通过以下途径返回的FileList对象获取：</p>
 <ol>
-<li>本文版权归原作者所有，仅用于学习与交流；</li>
-<li>如需转载译文，烦请按下方注明出处信息，谢谢！<div class="note default"><p>原文： The Cost Of JavaScript<br>作者： Addy Osmani<br>译者：smallbone<br><a href="https://medium.com/dev-channel/the-cost-of-javascript-84009f51e99e?mkt_tok=eyJpIjoiWm1NeVpXWXhPRE5sTnpBNSIsInQiOiJTZTg1YU5Sd2ozaWpwNXVzTVNqZlJRV3A1SlNkcVhWd3U5UlwvQ3lXVWEyXC9mWEZadk1lYmZGdXRDU0NuYXEzRjNXSmhOeDRMUWIrZFAzeFNQUmh4cEVFYW1vZ1BPT3p2Z1FSVVlRS3NuWWFhQ0VTVVB2VW9mZ2RCV1dHVjB3YklqIn0%3D" target="_blank" rel="external">原文地址</a></p>
-</div></li>
+<li><code>&lt;input type=&quot;file&quot;&gt;</code>的元素</li>
+<li>拖拽操作的DataTransfer对象</li>
+<li>通过在一个HTMLCanvasElement上调用<code>mozGetAsFile() API</code></li>
 </ol>
+<h3 id="通过input来选择文件"><a href="#通过input来选择文件" class="headerlink" title="通过input来选择文件"></a>通过input来选择文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">/* 假设input元素为&lt;input type=&quot;file&quot; id=&quot;upload&quot; multiple&gt; */</div><div class="line">//multiple表示一次支持多个文件上传</div><div class="line">let uploadInput = document.getElementById(&apos;upload&apos;);</div><div class="line">uploadInput.addEventListener(&apos;change&apos;, ()=&gt;&#123;</div><div class="line">	let fileList = uploadInput.files;</div><div class="line">	console.log(fileList);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>由于FileList对象并没有<code>forEach()</code>方法，所以一般需要通过<code>for循环</code>来遍历其中的每个File对象：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (var i = 0; fileCount = fileList.length; i &lt; fileCount; i++) &#123;</div><div class="line">	console.log(fileList[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>但是我们也可以通过其他方式来使用<code>forEach()</code>方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//1.call方法</div><div class="line">[].forEach.call(fileList, (file, i, fileList)=&gt;&#123;</div><div class="line">	...</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//2.ES6方法</div><div class="line">Array.from(uploadInput).forEach((i)=&gt;&#123;</div><div class="line">	...</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h3 id="通过拖拽-drag-amp-drop-选择文件"><a href="#通过拖拽-drag-amp-drop-选择文件" class="headerlink" title="通过拖拽(drag&amp;drop)选择文件"></a>通过拖拽(drag&amp;drop)选择文件</h3><h4 id="拖拽事件："><a href="#拖拽事件：" class="headerlink" title="拖拽事件："></a>拖拽事件：</h4><ul>
+<li>drag(开始拖动，<strong>持续事件</strong>)</li>
+<li>dragend(释放鼠标或者按下ESC，结束拖动)</li>
+<li>dragenter(进入有效的拖拽区域时)</li>
+<li>dragexit(当一个元素不再是拖动操作的直接选择目标时)</li>
+<li>dragleave(离开有效的拖拽区域时)</li>
+<li>dragover(悬停在有效的拖拽区域内时，<strong>持续事件</strong>)</li>
+<li>dragstart(开始拖动)</li>
+<li>drop(目标放置到有效的拖拽区域时)</li>
+</ul>
+<p>其中需要注意两点：</p>
+<ol>
+<li>如果dragover事件不阻止默认事件，drop事件就不会被触发。</li>
+<li>dragexit和dragleave在不同浏览器中的触发存在差异，<strong>dragexit在Chrome浏览器中就永远不会被触发</strong>。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">//拖拽和显示区域</div><div class="line">&lt;div id=&quot;drop_zone&quot;&gt;Drop files here&lt;/div&gt;</div><div class="line">&lt;output id=&quot;list&quot;&gt;&lt;/output&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">	function handleFileSelect(evt) &#123;</div><div class="line">		evt.stopPropagation();</div><div class="line">		evt.preventDefault();</div><div class="line">		//注意这里不再是target.files</div><div class="line">		let files = evt.dataTransfer.files;</div><div class="line">		let output = [];</div><div class="line">		</div><div class="line">		[].forEach.call(files, (file)=&gt;&#123;</div><div class="line">			output.push(&apos;&lt;li&gt;&lt;strong&gt;&apos;, file.name, &apos;&lt;/strong&gt; (&apos;, file.type || &apos;n/a&apos;, &apos;) - &apos;, (file.size/1024).toFixed(3), &apos; Kb, last modified date: &apos;, file.lastModifiedDate.toLocaleDateString(), &apos;&lt;/li&gt;&apos;);</div><div class="line">		&#125;);</div><div class="line">		document.getElementById(&apos;list&apos;).innerHTML = &apos;&lt;ul&gt;&apos; + output.join(&apos;&apos;) + &apos;&lt;/ul&gt;&apos;;	</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	function handleDragOver(evt) &#123;</div><div class="line">		evt.stopPropagation();</div><div class="line">		evt.preventDefault();</div><div class="line">		evt.dataTransfer.dropEffect = &apos;copy&apos;;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	let dropZone = document.getElementById(&apos;drop_zone&apos;);</div><div class="line">	dropZone.addEventListener(&apos;dragover&apos;, handleDragOver, false);</div><div class="line">	dropZone.addEventListener(&apos;drop&apos;, handleFileSelect, false);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p></p><p data-height="265" data-theme-id="dark" data-slug-hash="odzevo" data-default-tab="js,result" data-user="smallbone" data-embed-version="2" data-pen-title="FileReader Demo" data-preview="true" class="codepen">See the Pen <a href="https://codepen.io/smallbone/pen/odzevo/" target="_blank" rel="external">FileReader Demo</a> by Lu (<a href="https://codepen.io/smallbone" target="_blank" rel="external">@smallbone</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
       
     </div>
@@ -481,16 +450,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
-          
-            <a href="/tags/性能/" rel="tag"># 性能</a>
-          
-            <a href="/tags/翻译/" rel="tag"># 翻译</a>
-          
-        </div>
-      
 
       
       
@@ -500,8 +459,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/01/smashingnode-master-code/" rel="next" title="了不起的NodeJS：MongoDB代码更正">
-                <i class="fa fa-chevron-left"></i> 了不起的NodeJS：MongoDB代码更正
+              <a href="/2018/04/21/WebSocket/" rel="next" title="WebSocket简介">
+                <i class="fa fa-chevron-left"></i> WebSocket简介
               </a>
             
           </div>
@@ -509,10 +468,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/07/CSS-Grid/" rel="prev" title="CSS Grid">
-                CSS Grid <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -654,7 +609,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#网络"><span class="nav-number">1.</span> <span class="nav-text">网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解析-编译"><span class="nav-number">2.</span> <span class="nav-text">解析/编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行时间"><span class="nav-number">3.</span> <span class="nav-text">执行时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#减少JavaScript发送开销的模式"><span class="nav-number">4.</span> <span class="nav-text">减少JavaScript发送开销的模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他开销"><span class="nav-number">5.</span> <span class="nav-text">其他开销</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#渐进式引导"><span class="nav-number">6.</span> <span class="nav-text">渐进式引导</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结论"><span class="nav-number">7.</span> <span class="nav-text">结论</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#兼容性检查"><span class="nav-number">1.</span> <span class="nav-text">兼容性检查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FileReader"><span class="nav-number">2.</span> <span class="nav-text">FileReader()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#读取文件并显示进度"><span class="nav-number">2.1.</span> <span class="nav-text">读取文件并显示进度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FileList-API"><span class="nav-number">2.2.</span> <span class="nav-text">FileList API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#File-API"><span class="nav-number">2.3.</span> <span class="nav-text">File API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过input来选择文件"><span class="nav-number">2.4.</span> <span class="nav-text">通过input来选择文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过拖拽-drag-amp-drop-选择文件"><span class="nav-number">2.5.</span> <span class="nav-text">通过拖拽(drag&drop)选择文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#拖拽事件："><span class="nav-number">2.5.1.</span> <span class="nav-text">拖拽事件：</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -801,7 +756,7 @@
 		_hcwp.push({widget:"Bloggerstream", widget_id: 93025, selector:".hc-comment-count", label: "{\%COUNT%\}" });
 
 		
-		_hcwp.push({widget:"Stream", widget_id: 93025, xid: "2017/12/05/The-cost-of-JavaScript/"});
+		_hcwp.push({widget:"Stream", widget_id: 93025, xid: "2018/04/26/如何使用File-APIs来读取文件/"});
 		
 
 		(function() {
