@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Front End Development, HTML, CSS, JavaScript" />
+  <meta name="keywords" content="HTTP/2," />
 
 
 
@@ -93,12 +93,25 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="微前端">
-<meta property="og:url" content="http://blog.microfrontend.com/tags/python爬虫/index.html">
+<meta name="description" content="以正确的顺序请求页面资源对于快速的用户体验至关重要。想象一下，如果一个网页上有一堆图片，还有一个外部样式表，一些自定义Web字体和一些在head中的脚本。如果浏览器首先下载了所有图片并且最后加载了样式表，在所有内容都加载完毕前，页面将完全是空白页。如果浏览器首先加载了所有阻塞资源，接着是Web字体和图片，那么它可以更早地呈现页面，并让用户开始看到内容，同时加载其余的图片。我在Chrome浏览器性能">
+<meta name="keywords" content="HTTP&#x2F;2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(译)HTTP&#x2F;2的优先级">
+<meta property="og:url" content="http://blog.microfrontend.com/2018/12/29/HTTP2-Prioritization/index.html">
 <meta property="og:site_name" content="微前端">
+<meta property="og:description" content="以正确的顺序请求页面资源对于快速的用户体验至关重要。想象一下，如果一个网页上有一堆图片，还有一个外部样式表，一些自定义Web字体和一些在head中的脚本。如果浏览器首先下载了所有图片并且最后加载了样式表，在所有内容都加载完毕前，页面将完全是空白页。如果浏览器首先加载了所有阻塞资源，接着是Web字体和图片，那么它可以更早地呈现页面，并让用户开始看到内容，同时加载其余的图片。我在Chrome浏览器性能">
+<meta property="og:image" content="https://calendar.perfplanet.com/wp-content/uploads/2018/12/pat/chrome.png">
+<meta property="og:image" content="https://calendar.perfplanet.com/wp-content/uploads/2018/12/pat/firefox.png">
+<meta property="og:image" content="https://calendar.perfplanet.com/wp-content/uploads/2018/12/pat/safari.png">
+<meta property="og:image" content="https://calendar.perfplanet.com/wp-content/uploads/2018/12/pat/edge.png">
+<meta property="og:image" content="https://calendar.perfplanet.com/wp-content/uploads/2018/12/pat/waterfall_good.png">
+<meta property="og:image" content="https://calendar.perfplanet.com/wp-content/uploads/2018/12/pat/waterfall_bad.png">
+<meta property="og:image" content="https://calendar.perfplanet.com/wp-content/uploads/2018/12/pat/filmstrip.png">
+<meta property="og:updated_time" content="2018-12-29T05:02:43.322Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="微前端">
+<meta name="twitter:title" content="(译)HTTP&#x2F;2的优先级">
+<meta name="twitter:description" content="以正确的顺序请求页面资源对于快速的用户体验至关重要。想象一下，如果一个网页上有一堆图片，还有一个外部样式表，一些自定义Web字体和一些在head中的脚本。如果浏览器首先下载了所有图片并且最后加载了样式表，在所有内容都加载完毕前，页面将完全是空白页。如果浏览器首先加载了所有阻塞资源，接着是Web字体和图片，那么它可以更早地呈现页面，并让用户开始看到内容，同时加载其余的图片。我在Chrome浏览器性能">
+<meta name="twitter:image" content="https://calendar.perfplanet.com/wp-content/uploads/2018/12/pat/chrome.png">
 
 
 
@@ -126,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.microfrontend.com/tags/python爬虫/"/>
+  <link rel="canonical" href="http://blog.microfrontend.com/2018/12/29/HTTP2-Prioritization/"/>
 
 
 
 
 
-  <title>标签: python爬虫 | 微前端</title>
+  <title>(译)HTTP/2的优先级 | 微前端</title>
   
 
 
@@ -157,7 +170,7 @@
     
   
 
-  <div class="container sidebar-position-right  ">
+  <div class="container sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -275,44 +288,216 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h1>python爬虫<small>标签</small>
-      </h1>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.microfrontend.com/2018/12/29/HTTP2-Prioritization/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="smallbonelu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/15611493">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="微前端">
+    </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">(译)HTTP/2的优先级</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-29T13:00:34+08:00">
+                2018-12-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/29/HTTP2-Prioritization/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2018/12/29/HTTP2-Prioritization/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+             <span id="/2018/12/29/HTTP2-Prioritization/" class="leancloud_visitors" data-flag-title="(译)HTTP/2的优先级">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>以正确的顺序请求页面资源对于快速的用户体验至关重要。想象一下，如果一个网页上有一堆图片，还有一个外部样式表，一些自定义Web字体和一些在<code>head</code>中的脚本。如果浏览器首先下载了所有图片并且最后加载了样式表，在所有内容都加载完毕前，页面将完全是空白页。如果浏览器首先加载了所有阻塞资源，接着是Web字体和图片，那么它可以更早地呈现页面，并让用户开始看到内容，同时加载其余的图片。我在Chrome浏览器性能工作上的大部分时间都花在了尝试优化加载资源的顺序以获得最佳用户体验上。</p>
+<p>使用<code>HTTP/1.x</code>，浏览器可以完全控制资源加载顺序。每个连接一次只能支持一个资源请求，服务器会尽快返回请求的内容。浏览器可以通过决定何时请求资源以及打开多少个并行连接来安排请求。</p>
+<p><code>HTTP/2</code>让这些事情变得更好也更复杂了。浏览器可以一次请求多个资源，指定一些优先级信息来帮助确定应该如何处理这些资源，然后等待服务器发回所有数据，而不是一次请求一个。如果浏览器和服务器都支持优先级，则应使用浏览器指定的规则并使用所有可用带宽来传递资源，而不会有资源之间的相互竞争。</p>
+<p>每个资源都获取一个<code>stream ID</code>来标识连接上的资源，并且有三个参数用于定义资源优先级：</p>
+<ol>
+<li><strong><a href="https://http2.github.io/http2-spec/#pri-depend" target="_blank" rel="external">父级数据流(Parent Stream)</a></strong>：这个数据流是一个“依赖”资源或者应该在之后被传递的数据流。有一个所有数据流共享的虚拟<code>root stream 0</code>。</li>
+<li><strong><a href="https://http2.github.io/http2-spec/#rfc.section.5.3.2" target="_blank" rel="external">权重(Weight)</a></strong>：1到256之间的数字，用于标识在多个数据流共享连接时分配给此数据流的带宽量。带宽是相对于所有其他活动的数据流的权重分配的，而不是绝对值。</li>
+<li><strong><a href="https://http2.github.io/http2-spec/#HEADERS" target="_blank" rel="external">独占位(Exclusive bit)</a></strong>：一个标志，表示应该在不与任何其他数据流共享带宽的情况下下载。</li>
+</ol>
+<p>浏览器不一定同时知道所有资源，因此服务器能够在新请求到达时重新确定请求的优先级也很关键。</p>
+<p>那么……我们是怎么做的呢？</p>
+<h2 id="浏览器引擎"><a href="#浏览器引擎" class="headerlink" title="浏览器引擎"></a>浏览器引擎</h2><h3 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h3><p>这包括使用Chromium的优先级逻辑和网络堆栈的所有内容。</p>
+<p>Chrome是唯一使用<strong>独占位</strong>的浏览器，它在每个资源上使用它。它构建了一长串资源，将较低优先级的资源链接到仍在等待的最后一个相同或更高优先级的资源。如果没有更高优先级的资源挂起，则启动新链。权重以静态映射的方式分配，Chrome的五个内部优先级分别对应相应的权重（即HIGHEST为256）。</p>
+<p><img src="https://calendar.perfplanet.com/wp-content/uploads/2018/12/pat/chrome.png" alt="Chrome优先排序"></p>
+<p>假设给定几个请求队列，所有请求都设置了独占位，服务器将选择权重最高的一个，完成传递后，就将其从列表中弹出并重新选择。</p>
+<p>假设Chrome正确构建了排序，这可能非常有效。独占下载资源是样式表和脚本等阻塞资源的最佳选择。当涉及到图片和视频时，你可能需要一些交错执行的任务（特别是对于渐进式图片）。否则，在转到下一个请求前，你将要等待每个图片或视频完全下载下来。</p>
+<h3 id="Firefox"><a href="#Firefox" class="headerlink" title="Firefox"></a>Firefox</h3><p>Firefox实现了<code>HTTP/2</code>的树结构，并构建了一个虚拟的数据流树，用来对不同请求类型进行分组。Firefox对分组进行了加权，以便为更重要的组提供更多的带宽，并且当所有节点都已完成时，空闲周期(idle cycles)可用于响应。</p>
+<p>在根级别中，有一个“leader”组，，它的带宽是“Other group”的两倍。在“leader”组中，有一个叫“follower”的子组，它只有在“leader”组的直系后代完成下载后才会开始下载。例如，在权重为200的“leader”组下面，一旦所有CSS完成下载后，图片和字体才会开始下载。一个组内的所有子资源具有相同的权重并均匀分配带宽（同时下载所有图片或所有脚本）。</p>
+<p><img src="https://calendar.perfplanet.com/wp-content/uploads/2018/12/pat/firefox.png" alt="Firefox优先级"></p>
+<p>从整体结构上来看Firefox非常出色，可以为推测请求定义空闲周期，但对同时下载所有资源优先级的划分并不是很好。像样式表和脚本等这样的阻塞资源的优先下载要比按顺序下载它们才能让解析器处理文档要好。</p>
+<h3 id="Safari"><a href="#Safari" class="headerlink" title="Safari"></a>Safari</h3><p>这包括iOS上的所有浏览器（包括Chrome）。</p>
+<p>Safari采用了一种非常简单的方法，看起来是SPDY优先级的遗留部分。五个内部webkit优先级静态映射到权重，并且没有定义依赖关系。所有请求基于每个资源的优先级来划分带宽权重进行同时下载（例如，脚本获得图片带宽的三倍）。</p>
+<p><img src="https://calendar.perfplanet.com/wp-content/uploads/2018/12/pat/safari.png" alt="Safari优先级"></p>
+<p>这样导致高并发性并不是很好，而且落后于Firefox的实现，在Firefox中至少follower组的资源会等到leader组资源全部完成任务之后（尽管它可能不足以证明Firefox中树的复杂性）。</p>
+<h3 id="Microsoft-Edge-Internet-Explorer"><a href="#Microsoft-Edge-Internet-Explorer" class="headerlink" title="Microsoft Edge / Internet Explorer"></a>Microsoft Edge / Internet Explorer</h3><p>简而言之，Microsoft Edge（和Internet Explorer）根本不支持优先级。所有请求均匀分配带宽（几乎是最糟糕的情况）。</p>
+<p><img src="https://calendar.perfplanet.com/wp-content/uploads/2018/12/pat/edge.png" alt="边缘优先级"></p>
+<h2 id="Servers-Hosting-CDNs"><a href="#Servers-Hosting-CDNs" class="headerlink" title="Servers/Hosting/CDNs"></a>Servers/Hosting/CDNs</h2><p>现在大多数服务器都支持<code>HTTP/2</code>了，通常也”支持”优先级的。支持加了引号，是因为即使一个服务器内部支持资源优先级，实际上让它能够与浏览器工作也需要调整网络堆栈并尽可能减少输出缓冲而不影响吞吐量。</p>
+<p>缓冲可能是一个问题，因为服务器可以发送一堆低优先级的响应，这些响应在高优先级响应到来之前已经在缓冲区中排队。发送高优先级响应时，无法抢占已缓冲的低优先级响应。缓冲可以来自服务器本身，TLS层，TCP发送的缓冲，甚至来自网络上的bufferbloat，跟踪并消除所有多余的缓冲可能会很复杂。我在<a href="https://blog.cloudflare.com/http-2-prioritization-with-nginx/" target="_blank" rel="external">今年早些时候</a>的<a href="https://blog.cloudflare.com/http-2-prioritization-with-nginx/" target="_blank" rel="external">一篇博文中谈到</a>了一些原因和解决方案，但这并不是一个详尽的清单。</p>
+<p>为了测试服务器优先级的有效性，我构建了一个<a href="https://github.com/pmeenan/http2priorities" target="_blank" rel="external">测试页面</a>，你可以在你的服务堆栈上部署该<a href="https://github.com/pmeenan/http2priorities" target="_blank" rel="external">测试页面</a>以查看优先级是否正常工作。它专门针对Chrome的优先级逻辑，因此最好使用慢速连接上的Chrome进行测试。它先将3MB低优先级图片排队，然后在下载并执行高优先级脚本后，脚本会发送4个高优先级请求（一张图片，一个页面背景，一个自定义的webfont和一个阻塞脚本）。当优先级正常工作时，后置的高优先级请求的资源会跳过低优先级请求并快速得到响应：</p>
+<p><img src="https://calendar.perfplanet.com/wp-content/uploads/2018/12/pat/waterfall_good.png" alt="好瀑布"></p>
+<p>当优先级工作不正常时，部分或全部后置的高优先级请求的资源会被延迟，直到优先级较低的请求完成为止：</p>
+<p><img src="https://calendar.perfplanet.com/wp-content/uploads/2018/12/pat/waterfall_bad.png" alt="坏瀑布"></p>
+<p>后置请求的阻塞脚本的延迟超出了“DOM Content Loaded”的度量值，字体和2个图片的延迟对视觉体验产生了相当大的影响：</p>
+<p><img src="https://calendar.perfplanet.com/wp-content/uploads/2018/12/pat/filmstrip.png" alt="幻灯片"></p>
+<h2 id="我们从哪里开始？"><a href="#我们从哪里开始？" class="headerlink" title="我们从哪里开始？"></a>我们从哪里开始？</h2><p>为了跟踪CDN和托管服务提供商支持<code>HTTP/2</code>优先级的程度，<a href="https://twitter.com/AndyDavies" target="_blank" rel="external">Andy Davies</a>创建了一个<a href="https://github.com/andydavies/http2-prioritization-issues" target="_blank" rel="external">GitHub仓库</a>，用于跟踪当前的支持状况，任何人都可以提交测试结果来群策群力。在撰写本文时，情况非常糟糕，只有两个CDN确实正确地确定了优先级，并且存在一些非常令人震惊的失败（例如每个云提供商甚至Google的GFE）。希望通过提高对这种情况的认知，我们将能够为优先级提供更广泛的支持。</p>
+<p>对托管和服务器来说，好消息是你总是可以在它们之前配置一个支持优先级的CDN来解决问题（尽管直接支持它会很好）。</p>
+<p>在浏览器方面，除了敦促浏览器厂商以获得更好的支持之外，没有太多可以做的事情。其中的一些厂商可能会遇到架构问题，如他们的浏览器引擎在操作系统的网络堆栈层之上，导致无法传递优先级信息。可能是我的偏见，但我认为Chrome是最接近“正确”的做法，但仍有相当大的改进空间。</p>
+<p><code>HTTP/3</code>也即将到来，但目前的优先级方案不会改变。这个改变是网络堆栈的终结。在服务器端，这意味着操作系统的缓冲和拥塞控制不再起作用，服务器软件100％负责最小化缓冲（包括拥塞控制算法以最小化缓冲区）。</p>
+<p>那么就说到这里，希望为了<code>HTTP/2</code>和一个安全，高性能的网络，我们可以在2019年修复资源优先级。</p>
+<ol>
+<li>本文版权归原作者所有，仅用于学习与交流；</li>
+<li>如需转载译文，烦请按下方注明出处信息，谢谢！<div class="note default"><blockquote>
+<p>原文地址：<a href="https://calendar.perfplanet.com/2018/http2-prioritization/" target="_blank" rel="external">HTTP/2 Prioritization</a><br>原文作者：<a href="http://blog.patrickmeenan.com/" target="_blank" rel="external">[Patrick Meenan]</a><br>译者：<a href="https://github.com/smallbonelu" target="_blank" rel="external">smallbonelu</a></p>
+</blockquote>
+</div></li>
+</ol>
 
-      <h2 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2018/08/30/BeautifulSoup4搜索包含指定文本内容的标签返回空list的问题/" itemprop="url">
-              
-                <span itemprop="name">BeautifulSoup4 find_all搜索包含指定文本内容的标签返回空list的问题</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-30T16:09:10+08:00"
-              content="2018-08-30" >
-          08-30
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTTP-2/" rel="tag"># HTTP/2</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/13/Copying-Objects-in-JavaScript/" rel="next" title="JavaScript中对象的拷贝">
+                <i class="fa fa-chevron-left"></i> JavaScript中对象的拷贝
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -320,6 +505,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="hypercomments_widget"></div>
+    
+  </div>
+
 
         </div>
         
@@ -339,8 +530,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://avatars1.githubusercontent.com/u/15611493"
@@ -413,6 +613,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器引擎"><span class="nav-number">1.</span> <span class="nav-text">浏览器引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Chrome"><span class="nav-number">1.1.</span> <span class="nav-text">Chrome</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Firefox"><span class="nav-number">1.2.</span> <span class="nav-text">Firefox</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Safari"><span class="nav-number">1.3.</span> <span class="nav-text">Safari</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Microsoft-Edge-Internet-Explorer"><span class="nav-number">1.4.</span> <span class="nav-text">Microsoft Edge / Internet Explorer</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Servers-Hosting-CDNs"><span class="nav-number">2.</span> <span class="nav-text">Servers/Hosting/CDNs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我们从哪里开始？"><span class="nav-number">3.</span> <span class="nav-text">我们从哪里开始？</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -526,10 +742,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
@@ -553,6 +769,8 @@
 
 		_hcwp.push({widget:"Bloggerstream", widget_id: 93025, selector:".hc-comment-count", label: "{\%COUNT%\}" });
 
+		
+		_hcwp.push({widget:"Stream", widget_id: 93025, xid: "2018/12/29/HTTP2-Prioritization/"});
 		
 
 		(function() {
