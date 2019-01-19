@@ -1,0 +1,1311 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Web Performance," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="原文地址：Getting started with web performance: 2019 beginner’s guide原文作者：Jakub Gieryluk译文出自：FE-star/speed译者：smallbonelu校对者：[]本文链接：[]    有很多非常好的文章介绍了关于如何使用新功能X或技术Y亦或工具Z来提高网站性能。如果你对该主题不熟悉，那么浏览现代网络性能的迷宫可能会很">
+<meta name="keywords" content="Web Performance">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(译)网络性能入门：2019年初学者指南">
+<meta property="og:url" content="http://blog.microfrontend.com/2019/01/19/Getting-started-with-web-performance-2019-beginner’s-guide/index.html">
+<meta property="og:site_name" content="微前端">
+<meta property="og:description" content="原文地址：Getting started with web performance: 2019 beginner’s guide原文作者：Jakub Gieryluk译文出自：FE-star/speed译者：smallbonelu校对者：[]本文链接：[]    有很多非常好的文章介绍了关于如何使用新功能X或技术Y亦或工具Z来提高网站性能。如果你对该主题不熟悉，那么浏览现代网络性能的迷宫可能会很">
+<meta property="og:updated_time" content="2019-01-19T06:40:18.186Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="(译)网络性能入门：2019年初学者指南">
+<meta name="twitter:description" content="原文地址：Getting started with web performance: 2019 beginner’s guide原文作者：Jakub Gieryluk译文出自：FE-star/speed译者：smallbonelu校对者：[]本文链接：[]    有很多非常好的文章介绍了关于如何使用新功能X或技术Y亦或工具Z来提高网站性能。如果你对该主题不熟悉，那么浏览现代网络性能的迷宫可能会很">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"right","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.microfrontend.com/2019/01/19/Getting-started-with-web-performance-2019-beginner’s-guide/"/>
+
+
+
+
+
+  <title>(译)网络性能入门：2019年初学者指南 | 微前端</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">微前端</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">记录个人前端开发的点点滴滴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.microfrontend.com/2019/01/19/Getting-started-with-web-performance-2019-beginner’s-guide/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="smallbonelu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/15611493">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="微前端">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">(译)网络性能入门：2019年初学者指南</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-19T14:36:44+08:00">
+                2019-01-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/19/Getting-started-with-web-performance-2019-beginner’s-guide/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2019/01/19/Getting-started-with-web-performance-2019-beginner’s-guide/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+             <span id="/2019/01/19/Getting-started-with-web-performance-2019-beginner’s-guide/" class="leancloud_visitors" data-flag-title="(译)网络性能入门：2019年初学者指南">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>原文地址：<a href="https://calendar.perfplanet.com/2018/getting-started-with-web-performance-2019-beginners-guide/" target="_blank" rel="external">Getting started with web performance: 2019 beginner’s guide</a><br>原文作者：<a href="https://twitter.com/__jakub_g" target="_blank" rel="external">Jakub Gieryluk</a><br>译文出自：<a href="https://github.com/FE-star/speed" target="_blank" rel="external">FE-star/speed</a><br>译者：<a href="https://github.com/smallbonelu" target="_blank" rel="external">smallbonelu</a><br>校对者：[]<br>本文链接：[]  </p>
+</blockquote>
+<p>有很多非常好的文章介绍了关于如何使用新功能X或技术Y亦或工具Z来提高网站性能。如果你对该主题不熟悉，那么浏览现代网络性能的迷宫可能会很困难。在本文中，我将尝试提供一个指南，以开始你的性能之旅。</p>
+<h2 id="了解你的用户"><a href="#了解你的用户" class="headerlink" title="了解你的用户"></a>了解你的用户</h2><p>在开始之前，最好知道你的用户是谁以及他们如何使用你的网站，以便以后做出明智的决定。从性能方面来看，重要的事情是：</p>
+<ul>
+<li>移动与桌面浏览器的用户的比例，</li>
+<li>通过浏览器引擎来划分用户：类似Chrome，Safari，Firefox，Edge，IE，</li>
+<li>按国家划分用户。</li>
+</ul>
+<p>你很可能已经使用了可以回答这些问题的分析工具。花一些时间来分析这些数据并将其<strong>写下来</strong>，包括分析日期，以便在需要时轻松访问，并在几个月内进行重新评估和比较。</p>
+<p><em>请注意，全局统计信息通常与本地统计信息不同</em>：特别是在数据成本较高的国家/地区，UC浏览器，Opera Mini等浏览器非常受欢迎，而其他地方几乎未使用过。</p>
+<p>要了解用户的真实浏览体验，<strong>以及你的网站与竞争对手的比较情况</strong>，你可能需要查看<a href="https://dev.to/rick_viscomi/a-step-by-step-guide-to-monitoring-the-competition-with-the-chrome-ux-report-4k1o" target="_blank" rel="external">Chrome UX报告</a>。</p>
+<h2 id="确定测试URL"><a href="#确定测试URL" class="headerlink" title="确定测试URL"></a>确定测试URL</h2><p>提出一些URL，这些URL将成为性能分析和优化的候选者代表。你可能希望某些URL’s能够获得<strong>大量流量</strong>，随着时间的推移拥有<strong>相对稳定的内容</strong>，并且可以很好地<strong>覆盖</strong>你的网站的<strong>各种功能</strong>。</p>
+<p>你的首页是自然的第一候选者。对于博客或新闻网站，过去流行的文章将是另一个候选者。</p>
+<p>例如，Wikimedia的性能团队使用英语维基百科的“Barack Obama”和“Sweden”文章进行基准测试和性能监控。</p>
+<h2 id="了解这些工具"><a href="#了解这些工具" class="headerlink" title="了解这些工具"></a>了解这些工具</h2><p>在几个性能工具中运行你的页面，以熟悉它们并确定一些“速效方案”。不同的工具可能提供其他工具缺失的见解，或者可能比其他工具解释得更好 - 所以值得试一试所有的这些工具，看看哪些对你的特定用例最有用。</p>
+<ul>
+<li><strong>Lighthouse</strong>可能是最容易上手的工具，它提供了大量有关重度依赖JS的现代Web应用程序的详细信息：可以通过在Chrome浏览器开发工具的“Audit”选项卡中来运行，或者从任何浏览器本地运行<a href="https://developers.google.com/web/tools/lighthouse/run" target="_blank" rel="external">web应用程序</a>或<a href="https://www.webpagetest.org/lighthouse" target="_blank" rel="external">WPT</a></li>
+<li><strong><a href="https://www.webpagetest.org/" target="_blank" rel="external">WebPageTest</a></strong>是网络性能的“瑞士军刀”，非常强大，并为高级用户提供了许多“隐藏功能”。你进入webperf的次数越多，你使用它的次数也就会越多。<a href="https://www.webpagetest.org/video/view.php?id=160913_04096a0756f3acae68d94e3f273c59aebb13d10a&amp;data=1" target="_blank" rel="external">电影胶片和视频比较视图</a>是它的一些杀手级功能。<a href="http://shop.oreilly.com/product/0636920033592.do" target="_blank" rel="external">Using WebPageTest</a>一书是一个很好的参考。</li>
+<li><strong><a href="https://yellowlab.tools/" target="_blank" rel="external">Yellow Lab Tools</a></strong> 还可以提供各种性能指标的有用细分。</li>
+<li>虽然不是严格关注性能，但是也可以通过<strong><a href="https://webhint.io/scanner/" target="_blank" rel="external">WebHint</a></strong>和<strong><a href="https://redbot.org/" target="_blank" rel="external">RedBot</a></strong>查看一下，它们可以发现你网站的互操作性和正确性问题，提出改进建议，并帮助你摆脱无用的HTTP头。</li>
+<li>另请<strong><a href="https://www.sitespeed.io/" target="_blank" rel="external">参阅SiteSpeed.io</a></strong>以获取大量开源webperf工具。</li>
+<li>除此之外，还有许多商业性能监控服务，其中一些还提供有限的免费工具。</li>
+</ul>
+<p>在这一点上，你已经知道一些相对容易修复的问题（至少在理论上），但影响很大：比如未压缩资源，未优化图片等。</p>
+<h2 id="了解你网站的HTML"><a href="#了解你网站的HTML" class="headerlink" title="了解你网站的HTML"></a>了解你网站的HTML</h2><p>获取你网站的HTML输出(也就是页面源码)（例如在Firefox和Chrome中使用快捷键<code>Ctrl-U</code>），<a href="https://beautifier.io/" target="_blank" rel="external">重新格式化</a>并进行分析。<strong>创建一个关于哪些标签组成了你的HTML的高级文档，为什么会使用这些标签</strong>（如果你不知道，请询问你的同事），以及占用了多少字节。</p>
+<p>在长期维护的项目中，多年来积累的一些标签可能已经不再需要，那么就可以安全地移除它们。（如果它是第三方JavaScript库，那就附加奖励了！）</p>
+<h2 id="了解你网站的子资源"><a href="#了解你网站的子资源" class="headerlink" title="了解你网站的子资源"></a>了解你网站的子资源</h2><p>接下来的事情是明白你的网站，了解一个页面的加载触发了哪些HTTP请求，何时触发以及为什么会触发。运行WebPageTest测试，将<a href="https://www.webpagetest.org/result/181216_GB_9b0d2e1a261ee5401dfd19842cb74570/1/details/#waterfall_view_step1" target="_blank" rel="external">所有请求的列表（在底部）</a>复制到电子表格，并分析每个<a href="https://www.webpagetest.org/result/181216_GB_9b0d2e1a261ee5401dfd19842cb74570/1/details/#waterfall_view_step1" target="_blank" rel="external">请求</a>的角色（特别是列表中的前10-20个），以及它们的重要程度可能会有所帮助。<strong>使用图表软件创建流程图</strong>可能对更好地理解它们之间的依赖关系关系也很有用。</p>
+<p>如果你不确定给定请求的作用，你也许可以<strong>尝试阻止请求或人为的引入较大的延迟</strong>并查看网站的行为（这对于发现意外的单点故障依赖关系也很有用）。这有无数种方法可以做到：Chrome开发工具的<em>“Request blocking”</em>功能，Fiddler 的<em>“AutoResponder”</em>（具有延迟）功能，以及WebPageTest的<em>“Block”</em>或<em>“SPOF”</em>功能; 即使是任意浏览器中的广告拦截器都可以实现。</p>
+<p>通过了解哪些请求对用户体验至关重要，哪些请求是次要的，你可以更好地确定优化工作的优先级。如果可能，<a href="https://speedcurve.com/blog/load-scripts-async/" target="_blank" rel="external">请异步加载你的脚本</a>或<a href="https://gist.github.com/jakub-g/385ee6b41085303a53ad92c7c8afd7a6" target="_blank" rel="external">使用<code>defer</code></a></p>
+<p><a href="http://requestmap.webperf.tools/render/181216_GB_9b0d2e1a261ee5401dfd19842cb74570" target="_blank" rel="external">RequestMap</a>是一个可用于 <a href="https://csswizardry.com/2018/05/identifying-auditing-discussing-third-parties/" target="_blank" rel="external">审核来自你的webapp的第三方请求</a>的工具，并可帮助你发现通常不利于网站性能的长链请求。</p>
+<h2 id="隔离功能的方法"><a href="#隔离功能的方法" class="headerlink" title="隔离功能的方法"></a>隔离功能的方法</h2><p>复杂的Web应用程序通常必须实现许多功能并触发许多请求; 同时分析所有这些并不总是那么容易。<strong>通过能够轻易禁用的某些功能（例如通过查询字符串），你可以让你的生活更美好。</strong></p>
+<h2 id="小范围地测试"><a href="#小范围地测试" class="headerlink" title="小范围地测试"></a>小范围地测试</h2><p>面向性能的浏览器功能通常是非常新的，因此尚未经过实战测试，这些功能可能在不同的浏览器中存在一些难以察觉的错误或实现的行为略有不同。<br>当你将新浏览器功能直接应用于现实中的大型项目时，了解新浏览器功能的确切工作原理也可能会非常棘手。</p>
+<p>一个好主意可能是回到基础部分，<strong>创建小的隔离HTML页面进行测试</strong>，将它们部署到公共服务器（我使用GitHub Pages），并<strong>在所有主流浏览器中运行WebPageTest测试。</strong></p>
+<p><strong>由于统一的WebPageTest UI，所以可以轻松地比较浏览器引擎的行为</strong> - 比查看不同的开发工具界面要容易得多。如果你发现了一些意外行为，那么你已经有一个简化版的测试用例可以用来向浏览器厂商提交错误报告。</p>
+<h2 id="想一想要测量什么"><a href="#想一想要测量什么" class="headerlink" title="想一想要测量什么"></a>想一想要测量什么</h2><p>大多数早期优化（如删除/压缩assets）都可以安全地执行，并且会立即带来明显的改进，通常不会导致回退。但是为了更进一步和基于长期发展的考虑，你需要确切地<strong>知道你的KPI是什么</strong>以及<strong>如何衡量它们</strong>。</p>
+<p>这可能非常难以定义，它在很大程度上取决于你拥有的网站/网络应用程序类型。浏览器触发<code>load</code>或<code>DOMContentLoaded</code>事件的时间等“传统”指标并不适合现代网站，更不用说重度依赖JS的SPA了（单页面应用程序）。在任何情况下，请忘掉“one number to rule them all”。你很可能需要多个指标来了解全貌。</p>
+<h2 id="了解现有的性能指标"><a href="#了解现有的性能指标" class="headerlink" title="了解现有的性能指标"></a>了解现有的性能指标</h2><p>除了难以定义之外，某些事情仍难以准确测量，特别是视觉事件（<em>“我的图片和文字何时变得可见？”</em>）。这很难回答，因为文本呈现可能取决于外部CSS和webfonts的可用性（如果它们正在等待下载，这可能导致所谓的<a href="https://www.zachleat.com/web/fout-vs-foit/" target="_blank" rel="external">不可见文本闪烁</a>），而图片的<code>load</code>事件的触发也不能精准的知晓了（与在屏幕上实际渲染像素的时间相比）。</p>
+<p>直到最近，浏览器根本没有提供足够的细节来衡量<a href="https://speedcurve.com/blog/rendering-metrics/" target="_blank" rel="external">渲染性能</a>，而WebPageTest的<strong>Speed Index</strong>和<strong>Visually Complete</strong>也就成为了金律。这些是非常复杂的指标，是通过获取一系列屏幕截图并分析渲染内容随时间变化的方式创建的，但你应该<a href="https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index" target="_blank" rel="external">花一些时间来理解它们</a> ; 它们比简单的指标更好地传达用户体验。</p>
+<p>话虽如此，浏览器（特别是Chrome）在2018年在这个领域取得了一些进展，它发布了像<code>PerformanceObserver</code>这样的浏览器内置APIs，这个APIs提供了诸如<a href="https://developers.google.com/web/fundamentals/performance/user-centric-performance-metrics" target="_blank" rel="external"><strong>First Contentful Paint</strong>和<strong>First Meaningful Paint</strong></a>等事件。如果你对细节感兴趣，请查看<a href="https://www.youtube.com/watch?v=XvZ7-Uh0R4Q" target="_blank" rel="external">Paul Irish的演讲</a>。</p>
+<h2 id="创建自定义指标"><a href="#创建自定义指标" class="headerlink" title="创建自定义指标"></a>创建自定义指标</h2><p>除了现成的指标外，你可能还需要一些于你网站的特定的自定义指标; 也许是将你的JavaScript代码中自定义事件的时间戳与资源的获取时间和大小相结合，这些信息可以从<a href="https://developer.mozilla.org/en-US/docs/Web/API/Resource_Timing_API/Using_the_Resource_Timing_API" target="_blank" rel="external">Resource Timing API</a>来获取。</p>
+<p>在创建自定义指标时，你可能需要<strong>混合使用定义明确，细粒度，可操作的指标</strong>（例如，<em>“JavaScript method1()和method2()调用之间的时间”</em>）<strong>以及</strong>可以传达真实用户体验<strong>的更高级别指标</strong>（例如<em>“从HTML的<code>responseStart</code>到一个<code>myImportantAppLifecycleEvent</code>“的时间</em>）。前者是明确致力于改进给定指标（以及捕捉意外回退）的良好基准。后者不太容易随着大型重构和代码更改而变化，这些更改会改善一个细粒度指标而代价就是会恶化另一个。</p>
+<p>请注意，<a href="https://nicj.net/navigationtiming-in-practice/" target="_blank" rel="external">Navigation Timing</a>和<a href="https://nicj.net/resourcetiming-visibility-third-party-scripts-ads-and-page-weight/" target="_blank" rel="external">Resource Timing</a> APIs在某些早期实现中存在错误; 注意异常值（负值或极大值）可能会扭曲统计数据。最后，你可能会使用像<a href="https://github.com/akamai/boomerang" target="_blank" rel="external">boomerang</a>这样的库，而不是自己编写。</p>
+<h2 id="熟悉统计基础知识"><a href="#熟悉统计基础知识" class="headerlink" title="熟悉统计基础知识"></a>熟悉统计基础知识</h2><p>为了能够理解真实用户监控（RUM）数据，你需要了解<a href="https://phabricator.wikimedia.org/phame/live/7/post/83/measuring_wikipedia_page_load_times/" target="_blank" rel="external">平均值和中位数之间的差异，以及什么是百分位数</a>。</p>
+<p>某些类型的优化可能在中位数中不可见，但可能在第90,95和99百分位数上有很大差异。一般来说，你应该避免使用平均值，因为它们可能会产生误导，并且强烈建议考虑使用提供<a href="https://www.dynatrace.com/news/blog/why-averages-suck-and-percentiles-are-great/" target="_blank" rel="external">百分位数据和分布式分布图</a>的工具。</p>
+<p>请记住，独立事件<em>是独立的</em> ; <a href="https://www.slideshare.net/vividcortex/monitoring-with-percentiles/38" target="_blank" rel="external">你不能只对平均值或百分位数求和，</a>并假设获得的数据具有代表性或意义。</p>
+<h2 id="注意分析"><a href="#注意分析" class="headerlink" title="注意分析"></a>注意分析</h2><p>正如本文开头所提到的，分析全局数据集可能会产生误导。例如，你网站上的某些功能可能仅供登录用户使用。这可能意味着登录页面和未登录用户的登录页面的性能前景可能会有很大差异。</p>
+<p><strong>确定影响性能的主要标准，并能够缩小分析视图范围，</strong>以便在多种变体（登录/未登录，移动/桌面等）之间进行比较</p>
+<h2 id="学会使用限制"><a href="#学会使用限制" class="headerlink" title="学会使用限制"></a>学会使用限制</h2><p>在功能强大的MacBook Pro上进行本地测试，使用光纤 + 千兆WiFi时，无论如何，你的页面都会感觉很快。但这并不是你的用户在一个中端的Android设备上使用移动网络的情况，他们也许在通勤的时候（因此网络不稳定）访问你的网页。</p>
+<p>这就是在测试页面时使用<strong>网络和CPU限制</strong>很重要的原因。（平心而论，这可能是一次令人震惊的体验。）</p>
+<p>你可以在你喜欢的浏览器（<a href="https://developers.google.com/web/tools/chrome-devtools/network-performance/reference#throttling" target="_blank" rel="external">Chrome示例</a>）中，在操作系统级别（可能<a href="https://stackoverflow.com/questions/16276669/simulate-network-speeds-using-fiddler" target="_blank" rel="external">使用像Fiddler这样的代理</a>）通过devtools启用限制，或者在使用WebPageTest（“高级设置”面板）运行测试时启用限制。网络限制在基准测试中也很有用，可以随时间推移获得可比较的数据。</p>
+<p>如果你想更进一步了解，你可以尝试<a href="https://code.fb.com/networking-traffic/building-for-emerging-markets-the-story-behind-2g-tuesdays/" target="_blank" rel="external">2G Tuesday</a>的变化，或在你的办公室设置一个模拟慢速3G移动连接的测试WiFi。</p>
+<h2 id="区分延迟，带宽和CPU"><a href="#区分延迟，带宽和CPU" class="headerlink" title="区分延迟，带宽和CPU"></a>区分延迟，带宽和CPU</h2><p>随着新一代移动网络的安装和升级，互联网<strong>带宽</strong>每年都在迅速提高，即使在发展中国家也是如此。<strong>现代4G连接可能比过时的固定电话更好</strong> - 连接类型可能是一个误导因素。</p>
+<p>另一方面，由于物理限制，<strong>延迟</strong>不会快速改善。距离你的服务器数千公里的用户的长尾，不能做任何事情来改善他们的延迟，但通过确认问题并采取行动（最小化往返次数，<a href="https://calendar.perfplanet.com/2018/tcp-slow-start/" target="_blank" rel="external">识别TCP慢启动</a>，通过<code>dns-prefetch</code>/ <code>preconnect</code>/ <code>preload</code>等，预先启动DNS / TCP / TLS /资源请求）可以显著缓解此问题。</p>
+<p>最后但并非最不重要的是，虽然高端移动设备与昔日的台式机一样强大，但<strong>低端设备几乎没有改进</strong> - 它们只是变得更便宜了，但仍然使用<strong>较慢的CPU和较小的内存</strong>（尽管<a href="https://phabricator.wikimedia.org/phame/live/7/post/109/mobile_web_performance_the_importance_of_the_device/" target="_blank" rel="external">在相同的网络条件下</a>）。</p>
+<p>特别是当涉及到大的JavaScript bundles时，带宽（下载）不再是瓶颈 - CPU速度（解析和执行）才是。</p>
+<h2 id="了解HTTP-1-1和HTTP-2之间的区别"><a href="#了解HTTP-1-1和HTTP-2之间的区别" class="headerlink" title="了解HTTP / 1.1和HTTP / 2之间的区别"></a>了解HTTP / 1.1和HTTP / 2之间的区别</h2><p>HTTP / 2（简称<code>h2</code>，这令HTML编写者很困惑！）是HTTP协议的一个主要修订版，它显著改变了资源通过线路传输的方式，并且与HTTP / 1.1具有完全不同的性能特征。<strong>HTTP / 1世界的</strong>一些<strong>“最佳实践”（如域分片）在HTTP / 2中不再有意义</strong>，但同样重要的是，<strong>在各种浏览器和服务器中，某些HTTP / 2功能</strong>的<strong>实现是完全不同的，</strong>并且通常是<strong>不完整的</strong>。</p>
+<p>首先，在你最喜欢的devtools网络面板，检查你的assets是通过HTTP / 1还是HTTP / 2提供（右键单击列列表并勾选<code>Protocol</code>条目以使其显示）。</p>
+<p>如果你的应用程序使用多个域来存储图片，脚本和动态数据，那么你很可能会混合使用这两者。一旦了解了这一点，请调整每个传输的最佳实践。通常，你应该<em>尝试尽可能多地重用HTTP / 2连接</em> ; 浏览器会尝试通过将某些请求“合并”到同一个连接中，<a href="https://twitter.com/__jakub_g/status/1062718923341103106" target="_blank" rel="external">每个浏览器的实现会略有不同</a>。</p>
+<p><em>（请记住，大多数开发者代理 - 比如Fiddler - 默认将所有连接降级到HTTP / 1.1。确保在进行性能调查时禁用它们，以避免观察到误导行为。）</em></p>
+<p>通常，从2018年末开始，<strong>WebPageTest提供了比浏览器的devtools更高级的HTTP / 2信息</strong>，因此如果你对某些assets使用HTTP / 2，则应该花时间探索WPT瀑布流和连接视图。</p>
+<h2 id="成为瀑布流视图的朋友"><a href="#成为瀑布流视图的朋友" class="headerlink" title="成为瀑布流视图的朋友"></a>成为瀑布流视图的朋友</h2><p>WebPageTest是一个非常强大的工具，你可以从其瀑布流和连接视图中读取大量信息。这是一个完整的单独博客文章的主题，但简单来说，下面是你开始最能操作的信息：</p>
+<ul>
+<li>瀑布流的形状（越“垂直”越好），</li>
+<li>“网络静默”的缝隙，</li>
+<li>关键资源的DNS，TCP，TLS的请求延时— <a href="https://stackoverflow.com/questions/47273743/preconnect-vs-dns-prefetch-resource-hints" target="_blank" rel="external"><code>preconnect</code>或<code>dns-prefetch</code></a>是直接候选解决方案</li>
+</ul>
+<p>了解瀑布流对于进行非凡的优化至关重要。你可以从这个<a href="https://www.slideshare.net/jrvis/gdl-waterfall-anti-patterns" target="_blank" rel="external">关于瀑布流反模式的演示</a>开始，然后通过自由探索逐渐深入探讨这个主题。</p>
+<h2 id="保持JavaScript不受影响"><a href="#保持JavaScript不受影响" class="headerlink" title="保持JavaScript不受影响"></a>保持JavaScript不受影响</h2><p>向客户端发送大量JavaScript代码是现代Web最重要的问题之一。<br><a href="https://medium.com/@addyosmani/the-cost-of-javascript-in-2018-7d8950fbb5d4" target="_blank" rel="external">评估JavaScript非常昂贵</a> - 远远超过渲染大小相当的图像。当你遇到一个大型的现有项目时，要做很多的性能优化并不总是那么容易。话虽如此，这里有一些小技巧：</p>
+<ul>
+<li>使用Chrome开发工具中的<a href="https://developers.google.com/web/updates/2017/04/devtools-release-notes#coverage" target="_blank" rel="external">coverage选项卡</a>查找未使用的JavaScript和CSS。</li>
+<li>查看你使用的库并寻找更小的替代品。<a href="https://bundlephobia.com/scan-results?packages=moment@2.23.0,date-fns@1.30.1" target="_blank" rel="external">Bundlephobia</a>非常适合用来进行npm artifacts比较。</li>
+<li>确保不要导入大型库而是只使用它提供的一些小功能。实际上，<a href="https://youmightnotneed.com/" target="_blank" rel="external">你可能根本不需要</a>某些库; 现代JavaScript非常强大，而且<a href="https://polyfill.io/v2/docs/" target="_blank" rel="external">polyfilling的选择比以往更容易</a>。</li>
+<li>更新依赖关系也可能会减少你的包大小（或者恰恰相反 - 请小心），有时是间接的 - 通过避免项目中重复的传递子依赖关系。</li>
+</ul>
+<h2 id="了解你的构建工具"><a href="#了解你的构建工具" class="headerlink" title="了解你的构建工具"></a>了解你的构建工具</h2><p>像webpack这样的打包工具有很多配置选项可以帮助提高性能。阅读文档并完善配置可能需要一段时间，但这是一项很好的投资，可能带来很高的回报。特别是，<strong><a href="https://webpack.js.org/guides/code-splitting/" target="_blank" rel="external">code splitting</a>是一种关键技术，可以最大限度地减少初始JavaScript有效负载</strong>并在加载时保持页面响应。</p>
+<p>如果你正在使用babel来转换ES2015 +代码，请确保根据你的浏览器支持级别使用并正确配置<a href="http://2ality.com/2017/02/babel-preset-env.html" target="_blank" rel="external">babel-preset-env</a>，以避免在最终打包中进行不必要的转换和polyfill。</p>
+<p>归功于打包工具的<a href="https://webpack.js.org/guides/tree-shaking/" target="_blank" rel="external">tree-shaking</a>（死代码消除）功能，将<a href="https://twitter.com/addyosmani/status/1047010157564190720" target="_blank" rel="external">依赖项更新到较新的基于ES2015 +的版本</a>可以使你的包更小。</p>
+<h2 id="考虑长期缓存"><a href="#考虑长期缓存" class="headerlink" title="考虑长期缓存"></a>考虑长期缓存</h2><p>HTTP / 1世界的“常识”是将给定页面上所需的所有JavaScript合并为单个文件。如果你只进行一次页面部署并且永远不会再更改它了，这是合理的。但是，<strong>如果你定期更新部署，并且某些模块的更改频率高于其他模块</strong>，则将它们拆分为单独的包可能更有用，<em>即使它们总是一起使用也是如此。</em></p>
+<p>当使用HTTP / 2并且保持合理的打包数量时，多次下载的首次微小的延迟对于回访者增加的缓存命中率（因此避免昂贵的网络请求）来说，支付的代价很小。</p>
+<p>获得正确的长期缓存需要可以进行重复构建，对旧版本的webpack来说很难，<a href="https://github.com/webpack/webpack/issues/7179#issuecomment-449563879" target="_blank" rel="external">甚至是webpack 4</a>。刚刚发布的（alpha版）<a href="https://github.com/webpack/changelog-v5/blob/master/README.md" target="_blank" rel="external">webpack 5</a>承诺将开箱即用的长期缓存作为核心功能，这是一个非常好的消息。</p>
+<h2 id="使用开发人员版本的Web浏览器"><a href="#使用开发人员版本的Web浏览器" class="headerlink" title="使用开发人员版本的Web浏览器"></a>使用开发人员版本的Web浏览器</h2><p>现在的Firefox（Beta / Dev Edition / Nightly），Chrome（Beta / Dev / Canary），Safari（技术预览版）的预发行版本非常稳定。他们在部署到最终用户之前提供新的Web平台功能和重要更改的预览，还提供了有关弃用功能的早期警告，并且在添加到主流版本数周/月之前通常会在<strong>在开发工具</strong>中提供<strong>显着的改进</strong>。</p>
+<h2 id="懂得权衡利弊"><a href="#懂得权衡利弊" class="headerlink" title="懂得权衡利弊"></a>懂得权衡利弊</h2><p>改进一个指标有时意味着另一个指标的恶化; 在浏览器X中改进的可能在浏览器Y中产生回退。</p>
+<p>提前考虑，定期测试所有主要的浏览器引擎，并确保保持平衡。<strong>在分析工具中创建视图或过滤器，以便能够快速隔离来自不同浏览器</strong>，不同国家/地区的<strong>统计信息</strong>等。部署重大更改时，请务必分别检查每个视图。</p>
+<h2 id="信任但要验证"><a href="#信任但要验证" class="headerlink" title="信任但要验证"></a>信任但要验证</h2><p>警惕提供银弹，却不提及任何缺点的博客文章。<strong>始终测试多种浏览器和设备类型。</strong></p>
+<p>例如，<code>&lt;link rel=preload&gt;</code>如果使用得当并且符合你的需求的话，它是一个很好的功能，但是如果使用不当，它实际上可能会过度优先处理某些请求导致性能下降，从而牺牲了更重要的请求。</p>
+<p>另一个例子：<code>&lt;script type=&quot;module&quot;&gt;</code>/ <code>&lt;script nomodule&gt;</code>是一种很有前途的模式，用于将现代JavaScript传输到现代浏览器并将ES5转换为传统的JS，但它会在某些浏览器中产生<a href="https://gist.github.com/jakub-g/5fc11af85a061ca29cc84892f1059fec" target="_blank" rel="external">重复请求</a>。</p>
+<h2 id="请记住，一种方法不能解决所有问题"><a href="#请记住，一种方法不能解决所有问题" class="headerlink" title="请记住，一种方法不能解决所有问题"></a>请记住，一种方法不能解决所有问题</h2><p>对高带宽网络用户有利的事情 - 例如预加载（prefetching） - 对于数据套餐有限或带宽有限的用户（发展中国家，数据漫游用户）并不总是有利。<a href="https://calendar.perfplanet.com/2018/dynamic-resources-browser-network-device-memory/" target="_blank" rel="external">网络信息API，客户端提示，通过service worker重写动态请求</a>可能有助于缓解这些问题。</p>
+<h2 id="性能是一个动态的目标"><a href="#性能是一个动态的目标" class="headerlink" title="性能是一个动态的目标"></a>性能是一个动态的目标</h2><p>你的网站不是孤立的。浏览器会更新并且速度更快（<a href="https://phabricator.wikimedia.org/phame/live/7/post/117/performance_testing_in_a_controlled_lab_environment_-_the_metrics/" target="_blank" rel="external">但有时更慢</a>），用户会更换他们的设备，移动和固定电话网络也会升级 - 在分析长期性能KPI时请记住这一点。</p>
+<p>你的网站的受众特征也会随着在新的国家/地区受到欢迎而发生变化，在极端情况下，<a href="http://blog.chriszacharias.com/page-weight-matters" target="_blank" rel="external">当你实现真正的大规模改进时，你的全局指标可能会更糟！</a></p>
+<h2 id="记录你学到的东西"><a href="#记录你学到的东西" class="headerlink" title="记录你学到的东西"></a>记录你学到的东西</h2><p>快速学习太多东西时很容易迷失。记录你发现的新东西，为有用的URL等添加书签，以便以后回顾。在issue tracker中打开tickets以进一步研究一些想法也可能起到一些作用。</p>
+<h2 id="联系社区"><a href="#联系社区" class="headerlink" title="联系社区"></a>联系社区</h2><p>perf社区并不大，但如果你遇到困难，你可以在<a href="https://www.webpagetest.org/forums/" target="_blank" rel="external">WebPageTest论坛</a>上依靠那些热心人士提供的帮助。Twitter也可能是一个很好的信息来源。</p>
+<h2 id="持续学习并保持输出，一次一件事"><a href="#持续学习并保持输出，一次一件事" class="headerlink" title="持续学习并保持输出，一次一件事"></a>持续学习并保持输出，一次一件事</h2><p>理解Web性能的复杂性需要时间，即使具备了所有知识，找到正确的执行方案有可能很困难。有时你只需要撸起袖子加油干，然后反复试验和试错。</p>
+<p>目前还没有人发现性能银弹。学习新事物，提出想法，尝试，测量，权衡利弊，部署改进 — 一次一个。</p>
+<p>享受你（网站）的性能之旅！</p>
+<h2 id="附加资源"><a href="#附加资源" class="headerlink" title="附加资源"></a>附加资源</h2><ul>
+<li>如果你想了解互联网协议和网络浏览器的工作原理，<a href="https://hpbn.co/" target="_blank" rel="external">Ilya Grigorik的高性能浏览器网络</a>是一本很棒的书。</li>
+<li>另请参阅博客文章<a href="https://www.igvita.com/posa/high-performance-networking-in-google-chrome/" target="_blank" rel="external">Google Chrome中的高性能网络</a>。</li>
+<li><a href="https://paulcalvano.com/index.php/2018/07/25/brotli-compression-how-much-will-it-reduce-your-content/" target="_blank" rel="external">Brotli压缩 - 它会减小多少内容？</a></li>
+<li><a href="https://philipwalton.com/articles/deploying-es2015-code-in-production-today/" target="_blank" rel="external">在生产中部署ES2015 +代码</a></li>
+</ul>
+<p><em>感谢Hine Courtenay为本文的草稿版本提供了大量修正，以及Doug Sillars提供的有用技巧。</em></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Web-Performance/" rel="tag"># Web Performance</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/29/HTTP2-Prioritization/" rel="next" title="(译)HTTP/2的优先级">
+                <i class="fa fa-chevron-left"></i> (译)HTTP/2的优先级
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/19/2019差异化服务/" rel="prev" title="(译)在2019使用差异化服务">
+                (译)在2019使用差异化服务 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="hypercomments_widget"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars1.githubusercontent.com/u/15611493"
+               alt="smallbonelu" />
+          <p class="site-author-name" itemprop="name">smallbonelu</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/smallbonelu" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/bruce-lu-50335a128/" target="_blank" title="LinkedIn">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  LinkedIn
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#了解你的用户"><span class="nav-number">1.</span> <span class="nav-text">了解你的用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#确定测试URL"><span class="nav-number">2.</span> <span class="nav-text">确定测试URL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#了解这些工具"><span class="nav-number">3.</span> <span class="nav-text">了解这些工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#了解你网站的HTML"><span class="nav-number">4.</span> <span class="nav-text">了解你网站的HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#了解你网站的子资源"><span class="nav-number">5.</span> <span class="nav-text">了解你网站的子资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#隔离功能的方法"><span class="nav-number">6.</span> <span class="nav-text">隔离功能的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小范围地测试"><span class="nav-number">7.</span> <span class="nav-text">小范围地测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#想一想要测量什么"><span class="nav-number">8.</span> <span class="nav-text">想一想要测量什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#了解现有的性能指标"><span class="nav-number">9.</span> <span class="nav-text">了解现有的性能指标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建自定义指标"><span class="nav-number">10.</span> <span class="nav-text">创建自定义指标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#熟悉统计基础知识"><span class="nav-number">11.</span> <span class="nav-text">熟悉统计基础知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意分析"><span class="nav-number">12.</span> <span class="nav-text">注意分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#学会使用限制"><span class="nav-number">13.</span> <span class="nav-text">学会使用限制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#区分延迟，带宽和CPU"><span class="nav-number">14.</span> <span class="nav-text">区分延迟，带宽和CPU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#了解HTTP-1-1和HTTP-2之间的区别"><span class="nav-number">15.</span> <span class="nav-text">了解HTTP / 1.1和HTTP / 2之间的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#成为瀑布流视图的朋友"><span class="nav-number">16.</span> <span class="nav-text">成为瀑布流视图的朋友</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#保持JavaScript不受影响"><span class="nav-number">17.</span> <span class="nav-text">保持JavaScript不受影响</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#了解你的构建工具"><span class="nav-number">18.</span> <span class="nav-text">了解你的构建工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#考虑长期缓存"><span class="nav-number">19.</span> <span class="nav-text">考虑长期缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用开发人员版本的Web浏览器"><span class="nav-number">20.</span> <span class="nav-text">使用开发人员版本的Web浏览器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#懂得权衡利弊"><span class="nav-number">21.</span> <span class="nav-text">懂得权衡利弊</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信任但要验证"><span class="nav-number">22.</span> <span class="nav-text">信任但要验证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请记住，一种方法不能解决所有问题"><span class="nav-number">23.</span> <span class="nav-text">请记住，一种方法不能解决所有问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性能是一个动态的目标"><span class="nav-number">24.</span> <span class="nav-text">性能是一个动态的目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#记录你学到的东西"><span class="nav-number">25.</span> <span class="nav-text">记录你学到的东西</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联系社区"><span class="nav-number">26.</span> <span class="nav-text">联系社区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#持续学习并保持输出，一次一件事"><span class="nav-number">27.</span> <span class="nav-text">持续学习并保持输出，一次一件事</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附加资源"><span class="nav-number">28.</span> <span class="nav-text">附加资源</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">smallbonelu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+		<script type="text/javascript">
+		_hcwp = window._hcwp || [];
+
+		_hcwp.push({widget:"Bloggerstream", widget_id: 93025, selector:".hc-comment-count", label: "{\%COUNT%\}" });
+
+		
+		_hcwp.push({widget:"Stream", widget_id: 93025, xid: "2019/01/19/Getting-started-with-web-performance-2019-beginner’s-guide/"});
+		
+
+		(function() {
+		if("HC_LOAD_INIT" in window)return;
+		HC_LOAD_INIT = true;
+		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/93025/"+lang+"/widget.js";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hcc, s.nextSibling);
+		})();
+		</script>
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'manual') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("HvMahQYxRpeex6olcMAtisUo-gzGzoHsz", "XXk46iaL1w4wi5Q4tccYqnm8");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
