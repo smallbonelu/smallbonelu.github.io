@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Front End Development, HTML, CSS, JavaScript" />
+  <meta name="keywords" content="GitHub," />
 
 
 
@@ -93,12 +93,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="微前端">
-<meta property="og:url" content="http://blog.microfrontend.com/archives/2018/12/index.html">
+<meta name="description" content="正常情况下，如果需要删除GitHub上不需要的repos，手动删除的操作有点繁琐。如果只要删除一个还能接受，手动删除多个repos就有点浪费时间了。其实我们可以通过GitHub的API接口来批量删除不需要的repos。  将要删除的repos按照username\repos-name的格式以一行一个存放到文本文件中。   在GitHub上申请具有删除repos权限的token。   在命令行中运行">
+<meta name="keywords" content="GitHub">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何批量删除指定的GitHub Repos">
+<meta property="og:url" content="http://blog.microfrontend.com/2019/01/19/批量删除github-repos/index.html">
 <meta property="og:site_name" content="微前端">
+<meta property="og:description" content="正常情况下，如果需要删除GitHub上不需要的repos，手动删除的操作有点繁琐。如果只要删除一个还能接受，手动删除多个repos就有点浪费时间了。其实我们可以通过GitHub的API接口来批量删除不需要的repos。  将要删除的repos按照username\repos-name的格式以一行一个存放到文本文件中。   在GitHub上申请具有删除repos权限的token。   在命令行中运行">
+<meta property="og:image" content="c:/Users/smallbone/AppData/Roaming/Typora/typora-user-images/1547885759705.png">
+<meta property="og:image" content="c:/Users/smallbone/AppData/Roaming/Typora/typora-user-images/1547885990388.png">
+<meta property="og:updated_time" content="2019-01-19T08:36:05.956Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="微前端">
+<meta name="twitter:title" content="如何批量删除指定的GitHub Repos">
+<meta name="twitter:description" content="正常情况下，如果需要删除GitHub上不需要的repos，手动删除的操作有点繁琐。如果只要删除一个还能接受，手动删除多个repos就有点浪费时间了。其实我们可以通过GitHub的API接口来批量删除不需要的repos。  将要删除的repos按照username\repos-name的格式以一行一个存放到文本文件中。   在GitHub上申请具有删除repos权限的token。   在命令行中运行">
+<meta name="twitter:image" content="c:/Users/smallbone/AppData/Roaming/Typora/typora-user-images/1547885759705.png">
 
 
 
@@ -126,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.microfrontend.com/archives/2018/12/"/>
+  <link rel="canonical" href="http://blog.microfrontend.com/2019/01/19/批量删除github-repos/"/>
 
 
 
 
 
-  <title>归档 | 微前端</title>
+  <title>如何批量删除指定的GitHub Repos | 微前端</title>
   
 
 
@@ -157,7 +165,7 @@
     
   
 
-  <div class="container sidebar-position-right  page-archive  ">
+  <div class="container sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -275,103 +283,189 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 16 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2018">2018</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/12/29/HTTP2-Prioritization/" itemprop="url">
-              
-                <span itemprop="name">(译)HTTP/2的优先级</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-12-29T13:00:34+08:00"
-              content="2018-12-29" >
-          12-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/12/13/Copying-Objects-in-JavaScript/" itemprop="url">
-              
-                <span itemprop="name">JavaScript中对象的拷贝</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-12-13T16:02:53+08:00"
-              content="2018-12-13" >
-          12-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.microfrontend.com/2019/01/19/批量删除github-repos/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="smallbonelu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/15611493">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="微前端">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">如何批量删除指定的GitHub Repos</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-19T16:28:44+08:00">
+                2019-01-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/19/批量删除github-repos/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2019/01/19/批量删除github-repos/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+             <span id="/2019/01/19/批量删除github-repos/" class="leancloud_visitors" data-flag-title="如何批量删除指定的GitHub Repos">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>正常情况下，如果需要删除GitHub上不需要的<code>repos</code>，手动删除的操作有点繁琐。如果只要删除一个还能接受，手动删除多个repos就有点浪费时间了。其实我们可以通过GitHub的API接口来批量删除不需要的<code>repos</code>。</p>
+<ol>
+<li><p>将要删除的<code>repos</code>按照<code>username\repos-name</code>的格式以一行一个存放到文本文件中。</p>
+<p><img src="C:\Users\smallbone\AppData\Roaming\Typora\typora-user-images\1547885759705.png" alt="1547885759705"></p>
+</li>
+<li><p>在<a href="https://github.com/settings/tokens/new" target="_blank" rel="external">GitHub</a>上申请具有删除<code>repos</code>权限的<code>token</code>。</p>
+<p><img src="C:\Users\smallbone\AppData\Roaming\Typora\typora-user-images\1547885990388.png" alt="1547885990388"></p>
+</li>
+<li><p>在命令行中运行下面的命令：</p>
+</li>
+</ol>
+<ul>
+<li><strong>Linux</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">while read r;do curl -XDELETE -H &apos;Authorization: token xxx&apos; &quot;https://api.github.com/repos/$r &quot;;done &lt; repos</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>Windows</strong>(PowerShell)</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12</div><div class="line"><span class="built_in">get-content</span> D:\repolist.txt | <span class="built_in">ForEach-Object</span> &#123; <span class="built_in">Invoke-WebRequest</span> -Uri https://api.github.com/repos/<span class="variable">$_</span> -Method “DELETE” -Headers @&#123;<span class="string">"Authorization"</span>=<span class="string">"token xxx"</span>&#125; &#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/GitHub/" rel="tag"># GitHub</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/19/2019差异化服务/" rel="next" title="(译)在2019使用差异化服务">
+                <i class="fa fa-chevron-left"></i> (译)在2019使用差异化服务
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -379,6 +473,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="hypercomments_widget"></div>
+    
+  </div>
+
 
         </div>
         
@@ -585,11 +685,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   
@@ -614,6 +712,8 @@
 
 		_hcwp.push({widget:"Bloggerstream", widget_id: 93025, selector:".hc-comment-count", label: "{\%COUNT%\}" });
 
+		
+		_hcwp.push({widget:"Stream", widget_id: 93025, xid: "2019/01/19/批量删除github-repos/"});
 		
 
 		(function() {
